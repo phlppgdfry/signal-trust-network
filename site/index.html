@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SIGNAL 4.0 — The Independent Trust Infrastructure (Interactieve Productdemo)</title>
+  <meta name="description" content="Onafhankelijk digitaal vertrouwensnetwerk voor veilige oriëntatie (SIGNAL Compass), versleutelde persoonlijke documentatie (Vault) en warme overdracht (SIGNAL Bridge) naar Belgische hulpinstanties." />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+
+  <!-- Altijd zichtbare Prototype- & Veiligheidsbalk -->
+  <div class="safety-topbar" role="region" aria-label="Veiligheids- en prototypebalk">
+    <div class="safety-topbar-inner">
+      <div class="prototype-notice">
+        <span class="prototype-pill">SIGNAL 4.0 Conceptdemo</span>
+        <span>Uitsluitend fictieve dossiers · Er worden geen echte meldingen verzonden of centraal opgeslagen.</span>
+      </div>
+      <div class="safety-actions">
+        <button type="button" class="btn-top" id="btn-start-tour">Start rondleiding (6 stappen)</button>
+        <button type="button" class="btn-top" id="btn-toggle-emergency">Acuut gevaar / Noodnummers (1712 · ZSG · 101)</button>
+        <button type="button" class="btn-top" id="btn-toggle-invisible">SIGNAL Invisible (Discrete weergave)</button>
+        <button type="button" class="btn-top btn-safe-exit" id="btn-safe-exit">Safe Exit (Sessie wissen)</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Uitklapbare Nood- en Urgentielade -->
+  <div class="emergency-drawer" id="emergency-drawer" style="display: none;" role="region" aria-label="Noodhulp in België">
+    <div class="emergency-drawer-inner">
+      <div class="emergency-card">
+        <h4>Acuut fysiek of medisch gevaar: bel 101 of 112</h4>
+        <p>Ben je op dit moment niet veilig? SIGNAL is geen live meldkamer. Bel direct <strong>101</strong> (Politie) of <strong>112</strong> (Medische spoed).</p>
+      </div>
+      <div class="emergency-card">
+        <h4>Zorgcentra na Seksueel Geweld (ZSG) — 24/7 (Binnen 72u–7 dagen)</h4>
+        <p>Gratis medische en psychische zorg én mogelijkheid om forensisch sporenmateriaal te laten bewaren zonder verplichting tot onmiddellijke aangifte.</p>
+      </div>
+      <div class="emergency-card">
+        <h4>Hulplijn 1712 — Gratis & Anoniem</h4>
+        <p>Bel <strong>1712</strong> bij vragen over geweld, misbruik of kindermishandeling. Dit gesprek is gratis en verschijnt niet op je telefoonrekening.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- App Header & 10-Schermen Navigatie -->
+  <header class="app-header">
+    <div class="app-header-inner">
+      <div class="brand-row">
+        <div class="brand-identity">
+          <span class="brand-mark" data-nav-target="screen-home">signal.</span>
+          <span class="brand-tagline" id="brand-subtitle-text">The Independent Trust Infrastructure · Jouw verhaal. Jouw keuze.</span>
+        </div>
+        <span class="layer-indicator">Federatief Vertrouwensnetwerk · België → EU</span>
+      </div>
+
+      <nav class="screen-nav" aria-label="Hoofdnavigatie SIGNAL 4.0">
+        <button type="button" class="nav-tab active" data-screen="screen-home"><span class="nav-tab-num">1</span> Overzicht & SIGNAL Zero</button>
+        <button type="button" class="nav-tab" data-screen="screen-compass"><span class="nav-tab-num">2</span> SIGNAL Compass</button>
+        <button type="button" class="nav-tab" data-screen="screen-consent"><span class="nav-tab-num">3</span> Safety & Consent</button>
+        <button type="button" class="nav-tab" data-screen="screen-vault"><span class="nav-tab-num">4</span> Mijn Veilige Ruimte (Vault)</button>
+        <button type="button" class="nav-tab" data-screen="screen-bridge"><span class="nav-tab-num">5</span> SIGNAL Bridge</button>
+        <button type="button" class="nav-tab" data-screen="screen-aftercare"><span class="nav-tab-num">6</span> Vervolgstappen & Aftercare</button>
+        <button type="button" class="nav-tab" data-screen="screen-network"><span class="nav-tab-num">7</span> Hulpnetwerk & Passports</button>
+        <button type="button" class="nav-tab" data-screen="screen-handshake"><span class="nav-tab-num">8</span> Handshake Simulator</button>
+        <button type="button" class="nav-tab" data-screen="screen-workspace"><span class="nav-tab-num">9</span> Professional Workspace</button>
+        <button type="button" class="nav-tab" data-screen="screen-trust"><span class="nav-tab-num">10</span> Governance & Pulse</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Interactieve Rondleiding Balk -->
+  <div class="tour-bar" id="tour-bar" style="display: none;">
+    <div class="tour-bar-inner">
+      <div class="tour-step-text">
+        <strong id="tour-title">Stap 1/6</strong> — <span id="tour-desc"></span>
+      </div>
+      <div class="tour-controls">
+        <button type="button" class="btn" id="btn-tour-prev">Vorige stap</button>
+        <button type="button" class="btn btn-primary" id="btn-tour-next">Volgende stap</button>
+        <button type="button" class="btn" id="btn-tour-stop">Sluit rondleiding</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hoofdinhoud: De 10 Interactieve Schermen -->
+  <main class="main-container">
+
+    <!-- SCHERM 1: HOME & SIGNAL ZERO -->
+    <section class="screen-section active" id="screen-home">
+      <div class="screen-header">
+        <span class="screen-domain-badge">Laag 1: Discover · SIGNAL Zero (Zonder Account of Persoonsgegevens)</span>
+        <h1 class="screen-title">Je hoeft dit niet alleen uit te zoeken.</h1>
+        <p class="screen-subtitle">
+          SIGNAL helpt je om van twijfel of onzekerheid naar overzicht en passende hulp te gaan — op jouw eigen tempo, zonder verplichte login en zonder dat jouw verhaal op een publieke plek belandt.
+        </p>
+      </div>
+
+      <div class="grid-3" style="margin-bottom: 1.5rem;">
+        <div class="panel" style="border-top: 3px solid var(--deep-trust);">
+          <span class="badge badge-trust" style="margin-bottom:0.5rem;">Stap 1 · Oriënteren (SIGNAL Zero)</span>
+          <h3>Begrijpen wat er mogelijk is</h3>
+          <p style="font-size:0.9rem;">Twijfel je of een ervaring ernstig genoeg is of bij welk Belgisch meldpunt je terechtkunt? Gebruik <strong>SIGNAL Compass</strong> en <strong>Reality Check</strong> zonder één persoonsgegeven in te voeren.</p>
+          <button type="button" class="btn btn-primary" data-nav-target="screen-compass">Start SIGNAL Compass</button>
+        </div>
+
+        <div class="panel" style="border-top: 3px solid var(--human-care);">
+          <span class="badge badge-trust" style="margin-bottom:0.5rem;">Stap 2 · Vastleggen (SIGNAL Vault)</span>
+          <h3>Veilig voor jezelf documenteren</h3>
+          <p style="font-size:0.9rem;">Bouw een chronologische <strong>SIGNAL Timeline</strong> op met strikt onderscheid tussen eigen herinnering, bewijsstukken (met SHA-256 integriteitshash) en verklaringen van derden.</p>
+          <button type="button" class="btn btn-primary" data-nav-target="screen-vault">Open Mijn Veilige Ruimte</button>
+        </div>
+
+        <div class="panel" style="border-top: 3px solid var(--deep-trust);">
+          <span class="badge badge-trust" style="margin-bottom:0.5rem;">Stap 3 · Verbinden (SIGNAL Bridge)</span>
+          <h3>Warme overdracht zonder hervertellen</h3>
+          <p style="font-size:0.9rem;">Klaar om met een professional te spreken? Selecteer zelf welke notities je deelt met een geverifieerde Belgische partner (1712, ZSG, Vlaams Meldpunt, Unia, Ombudsman).</p>
+          <button type="button" class="btn btn-primary" data-nav-target="screen-bridge">Bekijk SIGNAL Bridge</button>
+        </div>
+      </div>
+
+      <div class="grid-2" style="margin-bottom: 1.5rem;">
+        <div class="panel-soft">
+          <h3>De 6 Samenwerkende Domeinen van SIGNAL 4.0</h3>
+          <div class="grid-2" style="gap:0.75rem; margin-top:0.75rem;">
+            <div class="panel" style="padding:0.9rem;">
+              <strong style="color:var(--deep-trust);">1. Compass</strong>
+              <p style="font-size:0.84rem; margin:0.2rem 0 0 0;">Behoeftegestuurde wegwijzer, Reality Check & SIGNAL Zero.</p>
+            </div>
+            <div class="panel" style="padding:0.9rem;">
+              <strong style="color:var(--deep-trust);">2. Vault</strong>
+              <p style="font-size:0.84rem; margin:0.2rem 0 0 0;">Versleutelde Timeline, Memory (zeker/onzeker) & Evidence Coach.</p>
+            </div>
+            <div class="panel" style="padding:0.9rem;">
+              <strong style="color:var(--deep-trust);">3. Care</strong>
+              <p style="font-size:0.84rem; margin:0.2rem 0 0 0;">Erkende menselijke hulp, SIGNAL Witness, Guardian & Aftercare.</p>
+            </div>
+            <div class="panel" style="padding:0.9rem;">
+              <strong style="color:var(--deep-trust);">4. Network</strong>
+              <p style="font-size:0.84rem; margin:0.2rem 0 0 0;">SIGNAL Bridge overdracht, Trust Passports & Connect API.</p>
+            </div>
+            <div class="panel" style="padding:0.9rem;">
+              <strong style="color:var(--deep-trust);">5. Justice</strong>
+              <p style="font-size:0.84rem; margin:0.2rem 0 0 0;">Voorwaardelijke Handshake, vierogencontrole, Collective & Fairness.</p>
+            </div>
+            <div class="panel" style="padding:0.9rem;">
+              <strong style="color:var(--deep-trust);">6. Impact</strong>
+              <p style="font-size:0.84rem; margin:0.2rem 0 0 0;">SIGNAL Pulse (k-anonieme inzichten), Continuity & Research.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3>Waarom SIGNAL géén digitaal beschuldigingsregister is</h3>
+          <p style="font-size:0.9rem;">
+            Het verzamelen van ongetoetste beschuldigingen in één centrale database vormt een groot juridisch en maatschappelijk risico (artikel 9 en 10 AVG). SIGNAL kiest voor een fundamenteel ander ontwerp:
+          </p>
+          <ul style="font-size:0.88rem; color:var(--ink-secondary); padding-left:1.2rem;">
+            <li style="margin-bottom:0.4rem;"><strong>Geen publieke namenlijsten of tellers:</strong> Er bestaan op SIGNAL nooit openbare profielen of aantallen meldingen over personen.</li>
+            <li style="margin-bottom:0.4rem;"><strong>Geen AI-rechter:</strong> AI velt nooit een oordeel over geloofwaardigheid of schuld.</li>
+            <li style="margin-bottom:0.4rem;"><strong>Geen beheerdersinzage:</strong> Zelfs systeembeheerders of financiers kunnen individuele dossiers niet lezen (Gouden Architectuurregel).</li>
+            <li style="margin-bottom:0.4rem;"><strong>Aparte route voor getuigen (SIGNAL Witness):</strong> Waarnemingen van collega's of omstanders blijven strikt gescheiden van eigen ervaringen en geruchten.</li>
+          </ul>
+          <div style="margin-top:0.85rem; display:flex; gap:0.6rem; flex-wrap:wrap;">
+            <button type="button" class="btn" data-nav-target="screen-handshake">Test de Handshake & Fairness Simulator</button>
+            <button type="button" class="btn" data-nav-target="screen-trust">Bekijk Governance & Rode Lijnen</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCHERM 2: SIGNAL COMPASS & REALITY CHECK -->
+    <section class="screen-section" id="screen-compass">
+      <div class="screen-header">
+        <span class="screen-domain-badge">Domein 1: SIGNAL Compass · Intelligente & Deterministische Wegwijzer</span>
+        <h1 class="screen-title">Wat heb je op dit moment nodig?</h1>
+        <p class="screen-subtitle">
+          In plaats van een koud klachtenformulier helpt SIGNAL Compass je zonder registratie te ontdekken welke opties, rechten en erkende Belgische voorzieningen bij jouw situatie passen.
+        </p>
+      </div>
+      <div id="compass-dynamic-root"></div>
+    </section>
+
+    <!-- SCHERM 3: SAFETY & CONSENT CENTER -->
+    <section class="screen-section" id="screen-consent">
+      <div class="screen-header">
+        <span class="screen-domain-badge">Laag 2: Protect · Zelfbeschikking, Safe Disclosure & AVG-transparantie</span>
+        <h1 class="screen-title">Safety & Consent Center</h1>
+        <p class="screen-subtitle">
+          Jij bepaalt welke gegevens voor welk doel bestaan. Bekijk en bedien hier de granulaire toestemmingsmatrix, de 5 niveaus van Safe Disclosure en de bescherming voor onveilige toestellen.
+        </p>
+      </div>
+      <div id="consent-dynamic-root"></div>
+    </section>
+
+    <!-- SCHERM 4: MIJN VEILIGE RUIMTE (VAULT, TIMELINE & MEMORY) -->
+    <section class="screen-section" id="screen-vault">
+      <div class="screen-header">
+        <span class="screen-domain-badge">Domein 2: SIGNAL Vault · Persoonlijke Tijdlijn, Memory & Bewijsintegriteit</span>
+        <h1 class="screen-title">Mijn Veilige Ruimte (Private Vault)</h1>
+        <p class="screen-subtitle">
+          Leg gebeurtenissen op je eigen tempo vast met een helder onderscheid tussen eigen herinnering (zeker vs. onzeker), documenten met SHA-256 integriteitshash, derdenverklaringen en latere aanvullingen.
+        </p>
+      </div>
+      <div id="vault-dynamic-root"></div>
+    </section>
+
+    <!-- SCHERM 5: SIGNAL BRIDGE (WARME OVERDRACHT) -->
+    <section class="screen-section" id="screen-bridge">
+      <div class="screen-header">
+        <span class="screen-domain-badge">Domein 4: SIGNAL Network · Warme Overdracht zonder Hervertellen</span>
+        <h1 class="screen-title">SIGNAL Bridge — Gecontroleerde Dossieroverdracht</h1>
+        <p class="screen-subtitle">
+          Voorkom dat je je verhaal telkens opnieuw vanaf nul moet vertellen. Kies zelf welke tijdlijnitems je wilt delen, controleer het Trust Passport van de ontvanger en ontvang een controleerbaar overdrachtsbewijs.
+        </p>
+      </div>
+      <div id="bridge-dynamic-root"></div>
+    </section>
+
+    <!-- SCHERM 6: VERVOLGSTAPPEN & SIGNAL AFTERCARE -->
+    <section class="screen-section" id="screen-aftercare">
+      <div class="screen-header">
+        <span class="screen-domain-badge">Domein 3: SIGNAL Care · Ondersteuning Ná een Melding of Overdracht</span>
+        <h1 class="screen-title">Mijn Vervolgstappen & SIGNAL Aftercare</h1>
+        <p class="screen-subtitle">
+          Goede ondersteuning stopt niet op het moment dat je een melding of overdracht doet. Hier vind je rustig overzicht, gespreksvoorbereiding en vrijwillige nazorg — zonder enige druk om aangifte te doen.
+        </p>
+      </div>
+
+      <div class="grid-2">
+        <div class="panel">
+          <h3>Wat gebeurt er na een SIGNAL Bridge-overdracht? (Case Journey)</h3>
+          <div class="timeline-list">
+            <div class="timeline-item">
+              <div class="timeline-meta"><span class="badge badge-trust">Stap 1 · Direct</span></div>
+              <h4 style="margin:0 0 0.3rem 0; color:var(--deep-trust);">Technische ontvangstbevestiging & Bridge Token</h4>
+              <p style="margin:0; font-size:0.88rem;">Je weet zeker dat jouw geselecteerde pakket versleuteld is aangekomen bij de gekozen partnerorganisatie. SIGNAL verzint nooit zelf een fictieve onderzoeksstatus.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-meta"><span class="badge badge-trust">Stap 2 · Binnen de termijn van de partner</span></div>
+              <h4 style="margin:0 0 0.3rem 0; color:var(--deep-trust);">Eerste verkennend contact (op jouw voorwaarden)</h4>
+              <p style="margin:0; font-size:0.88rem;">De behandelaar heeft jouw chronologie al gelezen zodat je het voorval niet helemaal opnieuw hoeft te reconstrueren. Jij beslist of je alleen advies wilt of verdere stappen overweegt.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-meta"><span class="badge badge-trust">Stap 3 · Vrijwillige vervolgkeuze</span></div>
+              <h4 style="margin:0 0 0.3rem 0; color:var(--deep-trust);">Rustpauze, bemiddeling of formele procedure</h4>
+              <p style="margin:0; font-size:0.88rem;">Er wordt door erkende hulppartners (zoals het Vlaams Meldpunt of Unia) nooit zonder jouw akkoord contact opgenomen met de betrokken organisatie of tegenpartij.</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="panel-soft" style="margin-bottom:1.25rem;">
+            <h3>SIGNAL Aftercare — Voorbereiding op je eerste gesprek</h3>
+            <p style="font-size:0.88rem;">Veel mensen vergeten tijdens een spannend gesprek met een hulpverlener, vertrouwenspersoon of advocaat wat ze wilden vragen. Deze vragen kun je meenemen:</p>
+            <ul style="font-size:0.88rem; padding-left:1.2rem; color:var(--ink-primary);">
+              <li style="margin-bottom:0.45rem;"><em>"Welke stappen kunnen jullie zetten zónder dat mijn naam nu al bij de tegenpartij bekend wordt?"</em></li>
+              <li style="margin-bottom:0.45rem;"><em>"Hoe lang bewaren jullie mijn dossier en wie binnen jullie organisatie heeft er toegang toe?"</em></li>
+              <li style="margin-bottom:0.45rem;"><em>"Wat zijn de voor- en nadelen van een interne procedure ten opzichte van een externe melding of aangifte?"</em></li>
+              <li><em>"Welke bescherming tegen represailles geldt er in mijn specifieke situatie?"</em></li>
+            </ul>
+          </div>
+
+          <div class="panel">
+            <h3>Vrijwillige Welzijnscheck-in (Zonder Druk)</h3>
+            <p style="font-size:0.88rem;">
+              Wil je over 14 of 30 dagen in je eigen kluis een rustige herinnering om te bekijken of je extra ondersteuning nodig hebt? SIGNAL stuurt nooit ongevraagde pushmeldingen met gevoelige tekst.
+            </p>
+            <div style="display:flex; gap:0.6rem; flex-wrap:wrap;">
+              <button type="button" class="btn btn-primary" data-nav-target="screen-network">Bekijk alle Belgische hulppartners</button>
+              <button type="button" class="btn" data-nav-target="screen-vault">Terug naar Mijn Veilige Ruimte</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCHERM 7: HULPNETWERK & TRUST PASSPORTS -->
+    <section class="screen-section" id="screen-network">
+      <div class="screen-header">
+        <span class="screen-domain-badge">Domein 4: SIGNAL Network · Samenwerken met Bestaande Belgische Voorzieningen</span>
+        <h1 class="screen-title">Belgisch Hulpnetwerk & SIGNAL Trust Passports</h1>
+        <p class="screen-subtitle">
+          SIGNAL concurreert niet met bestaande hulplijnen en meldpunten, maar maakt hun bevoegdheden, beroepsgeheim en toegangswegen (digitaal, telefonisch én fysiek) in één oogopslag controleerbaar.
+        </p>
+      </div>
+      <div id="network-dynamic-root"></div>
+    </section>
+
+    <!-- SCHERM 8: SAFE MATCHING & HANDSHAKE SIMULATOR -->
+    <section class="screen-section" id="screen-handshake">
+      <div class="screen-header">
+        <span class="screen-domain-badge">Domein 5: SIGNAL Justice · Voorwaardelijke Fase 3 Patroonherkenning</span>
+        <h1 class="screen-title">Safe Matching & SIGNAL Handshake Simulator</h1>
+        <p class="screen-subtitle">
+          Hoe kun je ontdekken dat meerdere mensen onafhankelijk van elkaar iets ernstigs meemaakten, zónder een illegaal beschuldigingsregister te bouwen of getuigenissen te besmetten? Test hier de vijf veiligheidspoorten.
+        </p>
+      </div>
+      <div id="handshake-dynamic-root"></div>
+    </section>
+
+    <!-- SCHERM 9: PROFESSIONAL & PARTNER WORKSPACE -->
+    <section class="screen-section" id="screen-workspace">
+      <div class="screen-header">
+        <span class="screen-domain-badge">Laag 3 & 4 · De Gouden Architectuurregel & Dossiergebonden Autorisatie</span>
+        <h1 class="screen-title">Professional & Partner Workspace</h1>
+        <p class="screen-subtitle">
+          Bekijk SIGNAL vanuit het perspectief van een gemachtigde behandelaar of auditor. Test hier live hoe de cryptografische scheiding voorkomt dat systeembeheerders of sponsors dossiers kunnen inzien.
+        </p>
+      </div>
+      <div id="workspace-dynamic-root"></div>
+    </section>
+
+    <!-- SCHERM 10: TRUST CENTER, GOVERNANCE & IMPACT OBSERVATORY -->
+    <section class="screen-section" id="screen-trust">
+      <div class="screen-header">
+        <span class="screen-domain-badge">Laag 5: Improve · Governance, Statutaire Onafhankelijkheid & SIGNAL Pulse</span>
+        <h1 class="screen-title">Trust Center, Governance & Impact Observatory</h1>
+        <p class="screen-subtitle">
+          Een vertrouwensplatform staat of valt met wie uiteindelijk de macht heeft. Bekijk hier de 6 governance-organen, de 8 statutaire onafhankelijkheidsregels, de 7 verboden anti-features en de ethische KPI's.
+        </p>
+      </div>
+      <div id="trust-dynamic-root"></div>
+    </section>
+
+  </main>
+
+  <!-- Safe Exit Modal -->
+  <div class="modal-backdrop" id="safe-exit-modal" role="dialog" aria-modal="true" aria-labelledby="safe-exit-title">
+    <div class="modal-card">
+      <span class="badge badge-trust" style="margin-bottom:0.5rem;">Safe Exit Uitgevoerd</span>
+      <h2 id="safe-exit-title" style="margin:0 0 0.5rem 0; color:var(--deep-trust); font-family:var(--font-serif);">
+        Lokale demosessie en ingevoerde testnotities zijn direct gewist.
+      </h2>
+      <p style="font-size:0.92rem; color:var(--ink-secondary);">
+        Alle tijdelijke aanpassingen in deze sessie zijn teruggezet naar de standaardstatus. In een productieomgeving leidt deze knop je bovendien direct door naar een neutrale startpagina (zoals een weerbericht of nieuwssite).
+      </p>
+      <div class="panel-caution" style="margin:1rem 0; font-size:0.86rem;">
+        <strong>Belangrijk voor je veiligheid op een gecontroleerd toestel:</strong><br/>
+        Een website kan om beveiligingsredenen van je browser niet automatisch jouw eerdere browsergeschiedenis wissen. Gebruik op een gedeeld toestel altijd een privévenster (Incognito) of wis handmatig je laatste uur browsergeschiedenis.
+      </div>
+      <button type="button" class="btn btn-primary" id="btn-close-safe-exit">Begrepen — Keer terug naar neutraal overzicht</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <div class="app-footer-inner">
+      <div>
+        <strong style="color:var(--deep-trust);">SIGNAL 4.0 — The Independent Trust Infrastructure</strong><br/>
+        <span>Onafhankelijk maatschappelijk & technologisch blauwdrukproject · België & EU (AVG / EU AI Act-conform ontwerp).</span>
+      </div>
+      <div>
+        <span>Alle dossiers en scenario's in deze demo zijn 100% synthetisch en fictief.</span><br/>
+        <span>Noodhulp: <strong>1712</strong> (Geweld & Misbruik) · <strong>101 / 112</strong> (Spoed) · <strong>ZSG</strong> (Zorgcentra na Seksueel Geweld).</span>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="assets/js/app.mjs"></script>
+</body>
+</html>
