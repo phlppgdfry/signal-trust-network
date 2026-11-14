@@ -1,0 +1,32 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Node / Frontend Demo
+node_modules/
+.next/
+dist/
+out/
+build/
+coverage/
+*.tsbuildinfo
+
+# .NET / Backend
+bin/
+obj/
+*.user
+*.suo
+
+# Environment & Secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Test & Temporary artifacts
+test-results/
+playwright-report/
+tmp/
+*.log
