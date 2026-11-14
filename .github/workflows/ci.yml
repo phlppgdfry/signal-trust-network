@@ -1,0 +1,26 @@
+name: Checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Run SIGNAL 4.0 engine & guardrail unit tests
+        run: node --test tests/*.test.mjs
+
+      - name: Build standalone signal-demo.html bundle
+        run: node scripts/build-standalone-demo.mjs

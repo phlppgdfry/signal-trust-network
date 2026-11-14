@@ -4,7 +4,7 @@
 
 **Een onafhankelijk digitaal vertrouwensnetwerk waarin mensen ernstige mistoestanden veilig kunnen documenteren, deskundige hulp vinden en — waar rechtmatig en verantwoord — afzonderlijke signalen kunnen laten onderzoeken voor begeleide opvolging.**
 
-**[Start hier](START-HERE.md)** · **[Masterplan 2026–2029 (v4.0)](MASTERPLAN.md)** · **[Product & Innovaties](docs/02-product-en-innovaties/signal-4.0-productfamilie.md)** · **[Architectuur & Security](docs/03-architectuur-en-beveiliging/systeemarchitectuur.md)** · **[AVG & Governance](docs/05-governance-en-financiering/governance-en-statutaire-waarborgen.md)** · **[Demo Blueprint (v4.0)](docs/07-demo-blueprint/signal-4.0-demo-specificatie.md)**
+**[Start hier](START-HERE.md)** · **[Interactieve Demo (Standalone HTML)](signal-demo.html)** · **[Web App (`site/`)](site/index.html)** · **[Masterplan 2026–2029 (v4.0)](MASTERPLAN.md)** · **[Product & Innovaties](docs/02-product-en-innovaties/signal-4.0-productfamilie.md)** · **[Architectuur & Security](docs/03-architectuur-en-beveiliging/systeemarchitectuur.md)** · **[AVG & Governance](docs/05-governance-en-financiering/governance-en-statutaire-waarborgen.md)**
 
 > **Status & Veiligheidskader:** Dit repository bevat de volledige productstrategie, systeemarchitectuur, juridische en ethische kaders (AVG art. 9/10, EU AI Act), governance-blauwdruk en UX-specificatie voor **SIGNAL 4.0**. Alle voorbeelden, dossiers en scenario's in deze repository zijn **100% fictief en synthetisch**. SIGNAL vervangt nooit politie, justitie of bestaande Belgische hulpverlening (zoals 1712, de Zorgcentra na Seksueel Geweld, Unia of het Vlaams Meldpunt), maar vormt de veilige brug ertussen.
 
@@ -120,6 +120,20 @@ Om te voorkomen dat een beschermend platform verandert in een digitaal schandblo
 | [`docs/05-governance-en-financiering/`](docs/05-governance-en-financiering/governance-en-statutaire-waarborgen.md) | Belgische VZW/Stichting-structuur, 6 toezichtsorganen, statutaire onafhankelijkheidsregels, budget en KPI's |
 | [`docs/06-adr/`](docs/06-adr/ADR-001-federatief-vertrouwensnetwerk-boven-centrale-database.md) | Architectuur- en ontwerpbeslissingen (ADR-001 t/m ADR-005) |
 | [`docs/07-demo-blueprint/`](docs/07-demo-blueprint/signal-4.0-demo-specificatie.md) | Volledige UX/UI-specificatie van de 10 interactieve SIGNAL 4.0-schermen + synthetische scenario- en testdata |
+| [`signal-demo.html`](signal-demo.html) | Direct met één klik te openen standalone interactieve SIGNAL 4.0 productdemo (geen server nodig) |
+| [`site/`](site/index.html) | Modulaire webapplicatie (GitHub Pages-ready) met gedeelde deterministische `signal-engine.mjs` |
+| [`tests/signal-engine.test.mjs`](tests/signal-engine.test.mjs) | Geautomatiseerde verificatietests voor de 8 categorieën, `SIGNAL Compass`, `Timeline`-onveranderlijkheid, `Bridge`, `Handshake` en de Gouden Architectuurregel |
+
+---
+
+## 5B. De Interactieve SIGNAL 4.0 Demo lokaal starten en verifiëren
+
+| Wat | Hoe | Resultaat |
+|---|---|---|
+| **Direct openen (zonder server)** | Open [`signal-demo.html`](signal-demo.html) dubbelklikkend in je browser | Alle 10 interactieve schermen, rondleiding van 6 stappen, `SIGNAL Invisible` en `Safe Exit` |
+| **Lokale ontwikkelserver** | `python3 -m http.server -d site 8080` → `http://localhost:8080` (of `?tour` voor directe rondleiding) | De modulaire webapplicatie vanuit `site/` |
+| **Verificatietests uitvoeren** | `node --test tests/*.test.mjs` | 8/8 unit tests voor deterministische routering, `ADR-002`, `ADR-003` en toegangscontrole |
+| **Standalone bundel herbouwen** | `node scripts/build-standalone-demo.mjs` | Genereert `signal-demo.html` vanuit `site/` |
 
 ---
 
