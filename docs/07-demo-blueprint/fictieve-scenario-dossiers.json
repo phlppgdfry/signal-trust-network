@@ -1,0 +1,315 @@
+{
+  "metadata": {
+    "version": "4.0.0",
+    "status": "SYNTHETIC_DEMO_DATA_ONLY",
+    "disclaimer": "Alle personen, organisaties in casussen, tijdlijnen en dossiers in dit bestand zijn 100% fictief en uitsluitend bedoeld om de werking van SIGNAL 4.0 te demonstreren.",
+    "lastUpdated": "2026-11-14"
+  },
+  "safeDisclosureLevels": [
+    {
+      "level": 1,
+      "code": "SIGNAL_ZERO",
+      "name": "Oriënteren zonder persoonsgegevens",
+      "description": "Verken wat er gebeurd is, begrijp je rechten en vind de juiste Belgische hulplijn zonder account, login of cookies.",
+      "dataShared": "Geen enkel persoonsgegeven"
+    },
+    {
+      "level": 2,
+      "code": "PRIVATE_VAULT",
+      "name": "Privé documenteren op eigen tempo",
+      "description": "Bouw een chronologische tijdlijn op met onderscheid tussen eigen herinnering, bewijsstukken en derden. Niets wordt verzonden.",
+      "dataShared": "Enkel versleuteld voor jezelf"
+    },
+    {
+      "level": 3,
+      "code": "CONFIDENTIAL_ADVICE",
+      "name": "Vertrouwelijk professioneel advies",
+      "description": "Bespreek je situatie anoniem of vertrouwelijk met een erkende hulpverlener (zoals 1712, een ZSG of het Vlaams Meldpunt).",
+      "dataShared": "Alleen wat jij mondeling of in een hulpgesprek deelt"
+    },
+    {
+      "level": 4,
+      "code": "SIGNAL_BRIDGE",
+      "name": "Gecontroleerde informatieoverdracht",
+      "description": "Selecteer zelf welke tijdlijnitems en bijlagen je veilig overdraagt aan een geverifieerde partnerorganisatie, zodat je niet opnieuw hoeft te vertellen.",
+      "dataShared": "Uitsluitend geselecteerde dossieritems naar één gekozen partner"
+    },
+    {
+      "level": 5,
+      "code": "FORMAL_OR_COLLECTIVE",
+      "name": "Formele of begeleide collectieve stap",
+      "description": "Onderneem individueel of — na onafhankelijke controle en juridisch advies — gezamenlijk formele stappen bij een bevoegde instantie.",
+      "dataShared": "Formeel juridisch of bestuurlijk dossier onder professionele begeleiding"
+    }
+  ],
+  "partnerOrganizations": [
+    {
+      "organizationId": "org-1712",
+      "name": "1712 — Hulplijn Geweld, Misbruik & Kindermishandeling",
+      "jurisdiction": "BE-Vlaanderen / Brussel",
+      "verificationStatus": "verified_statutory",
+      "supportedCategories": [
+        "seksueel-grensoverschrijdend-gedrag",
+        "pesten-intimidatie-machtsmisbruik",
+        "institutionele-misstanden",
+        "online-misbruik"
+      ],
+      "legalBasisSummary": "Erkende en door de Vlaamse overheid gefinancierde professionele hulplijn voor elke burger met vragen over geweld of misbruik.",
+      "confidentialityRegime": {
+        "professionalSecrecy": true,
+        "allowsAnonymousContact": true,
+        "dataControllerName": "1712 / Samenwerkingsverband CAW & Vertrouwenscentra Kindermishandeling",
+        "retentionPolicySummary": "Anonieme contacten mogelijk; gespreksgegevens vallen onder het beroepsgeheim van de hulpverlening."
+      },
+      "independentOversightBody": "Departement Zorg (Vlaamse Overheid)",
+      "accessChannels": {
+        "bridgeApiEnabled": true,
+        "phoneNumber": "1712",
+        "physicalIntakePossible": true,
+        "emergency24x7": false
+      }
+    },
+    {
+      "organizationId": "org-zsg",
+      "name": "Zorgcentra na Seksueel Geweld (ZSG)",
+      "jurisdiction": "BE-Federaal (10 centra in België)",
+      "verificationStatus": "verified_statutory",
+      "supportedCategories": [
+        "seksueel-grensoverschrijdend-gedrag"
+      ],
+      "legalBasisSummary": "Federaal gecoördineerde centra (Instituut voor de gelijkheid van vrouwen en mannen & FOD Volksgezondheid) voor multidisciplinaire opvang na seksueel geweld.",
+      "confidentialityRegime": {
+        "professionalSecrecy": true,
+        "allowsAnonymousContact": false,
+        "dataControllerName": "Betreffend Universitair of Algemeen Ziekenhuis (ZSG-locatie)",
+        "retentionPolicySummary": "Medisch beroepsgeheim; forensisch sporenmateriaal kan tot 6 maanden+ worden bewaard zonder verplichting tot onmiddellijke politieaangifte."
+      },
+      "independentOversightBody": "IGVM & FOD Volksgezondheid",
+      "accessChannels": {
+        "bridgeApiEnabled": true,
+        "phoneNumber": "24/7 bereikbaar per centrum",
+        "physicalIntakePossible": true,
+        "emergency24x7": true
+      }
+    },
+    {
+      "organizationId": "org-vlaams-meldpunt",
+      "name": "Vlaams Meldpunt Grensoverschrijdend Gedrag",
+      "jurisdiction": "BE-Vlaanderen",
+      "verificationStatus": "verified_statutory",
+      "supportedCategories": [
+        "pesten-intimidatie-machtsmisbruik",
+        "seksueel-grensoverschrijdend-gedrag",
+        "institutionele-misstanden"
+      ],
+      "legalBasisSummary": "Onafhankelijk meldpunt (opgericht in 2023 bij het Vlaams Mensenrechteninstituut) voor situaties binnen Vlaamse organisaties en sectoren.",
+      "confidentialityRegime": {
+        "professionalSecrecy": true,
+        "allowsAnonymousContact": true,
+        "dataControllerName": "Vlaams Mensenrechteninstituut (VMRI)",
+        "retentionPolicySummary": "Geen stappen zonder toestemming van de melder; strikte wettelijke geheimhouding."
+      },
+      "independentOversightBody": "Vlaams Parlement",
+      "accessChannels": {
+        "bridgeApiEnabled": true,
+        "phoneNumber": "0800 20 808",
+        "physicalIntakePossible": true,
+        "emergency24x7": false
+      }
+    },
+    {
+      "organizationId": "org-unia",
+      "name": "Unia — Interfederaal Gelijkekansencentrum",
+      "jurisdiction": "BE-Federaal / Gewesten",
+      "verificationStatus": "verified_statutory",
+      "supportedCategories": [
+        "discriminatie",
+        "pesten-intimidatie-machtsmisbruik",
+        "online-misbruik"
+      ],
+      "legalBasisSummary": "Onafhankelijke openbare instelling die discriminatie bestrijdt en gelijke kansen bevordert op basis van de antidiscriminatiewetgeving.",
+      "confidentialityRegime": {
+        "professionalSecrecy": true,
+        "allowsAnonymousContact": true,
+        "dataControllerName": "Unia",
+        "retentionPolicySummary": "Geen contact met de tegenpartij zonder uitdrukkelijk akkoord van de melder."
+      },
+      "independentOversightBody": "Parlementaire toezichtsorganen & Raad van Bestuur",
+      "accessChannels": {
+        "bridgeApiEnabled": true,
+        "phoneNumber": "0800 12 800",
+        "physicalIntakePossible": true,
+        "emergency24x7": false
+      }
+    },
+    {
+      "organizationId": "org-ombudsman-firm",
+      "name": "Federale Ombudsman & FIRM-IFDH (Klokkenluiderskanaal)",
+      "jurisdiction": "BE-Federaal",
+      "verificationStatus": "verified_statutory",
+      "supportedCategories": [
+        "bedrijfsfraude-klokkenluiden",
+        "milieu-en-veiligheidsmisstanden",
+        "institutionele-misstanden"
+      ],
+      "legalBasisSummary": "Bevoegd extern meldkanaal en federaal ondersteuningsinstituut onder de Belgische Klokkenluiderswet van 28 november 2022.",
+      "confidentialityRegime": {
+        "professionalSecrecy": true,
+        "allowsAnonymousContact": true,
+        "dataControllerName": "Federale Ombudsman / FIRM-IFDH",
+        "retentionPolicySummary": "Wettelijk beschermde geheimhouding van de identiteit van de klokkenluider en bescherming tegen represailles."
+      },
+      "independentOversightBody": "Kamer van Volksvertegenwoordigers",
+      "accessChannels": {
+        "bridgeApiEnabled": true,
+        "phoneNumber": "0800 99 961",
+        "physicalIntakePossible": true,
+        "emergency24x7": false
+      }
+    }
+  ],
+  "fictionalDossiers": [
+    {
+      "dossierId": "demo-dossier-01",
+      "personaName": "Fictief Dossier A — Stagiaire in de creatieve sector",
+      "roleType": "direct_reporter",
+      "currentDisclosureLevel": 2,
+      "categories": [
+        "pesten-intimidatie-machtsmisbruik",
+        "seksueel-grensoverschrijdend-gedrag"
+      ],
+      "summary": "Ervaart tijdens een stage herhaaldelijk grensoverschrijdende berichten laat op de avond en druk om buiten werktijd alleen af te spreken om een beoordeling 'goed te laten verlopen'. Twijfelt of ze hiermee naar de onderwijsinstelling of het Vlaams Meldpunt kan stappen.",
+      "timelineEntries": [
+        {
+          "entryId": "tl-101",
+          "createdAt": "2026-10-04T21:15:00+02:00",
+          "incidentDateOrPeriod": "2026-10-02 (avond)",
+          "entryType": "own_memory",
+          "certainty": "exact",
+          "title": "Gesprek na afloop van de vrijdagborrel",
+          "rawUserNarrative": "Na het vertrek van de andere collega's zei de begeleider dat mijn stagebeoordeling 'volledig van hem afhangt' en dat we dat buiten kantoor onder vier ogen moesten bespreken.",
+          "categories": ["pesten-intimidatie-machtsmisbruik"]
+        },
+        {
+          "entryId": "tl-102",
+          "createdAt": "2026-10-12T08:40:00+02:00",
+          "incidentDateOrPeriod": "2026-10-11 om 23:48",
+          "entryType": "document_evidence",
+          "certainty": "exact",
+          "title": "Screenshot van berichten op zondagavond",
+          "rawUserNarrative": "Drie opeenvolgende berichten waarin gevraagd wordt om foto's te sturen en nogmaals verwezen wordt naar mijn eindcijfer.",
+          "categories": ["seksueel-grensoverschrijdend-gedrag", "pesten-intimidatie-machtsmisbruik"],
+          "attachments": [
+            {
+              "attachmentId": "att-901",
+              "fileName": "screenshot-berichten-11okt-geanonimiseerd.png",
+              "mimeType": "image/png",
+              "sha256Hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "timestampedAt": "2026-10-12T08:40:12+02:00"
+            }
+          ]
+        },
+        {
+          "entryId": "tl-103",
+          "createdAt": "2026-10-19T19:05:00+02:00",
+          "incidentDateOrPeriod": "Begin september 2026 (datum onzeker)",
+          "entryType": "third_party_note",
+          "certainty": "approximate_date",
+          "title": "Opmerking van oud-stagiair tijdens overdracht",
+          "rawUserNarrative": "Mijn voorganger waarschuwde me op mijn eerste week kort: 'Zorg dat je nooit als laatste op kantoor achterblijft.' Ik weet niet of het op maandag 7 of dinsdag 8 september was.",
+          "categories": ["pesten-intimidatie-machtsmisbruik"]
+        }
+      ]
+    },
+    {
+      "dossierId": "demo-dossier-02",
+      "personaName": "Fictief Dossier B — Collega / Getuige op een logistieke afdeling (SIGNAL Witness)",
+      "roleType": "witness",
+      "currentDisclosureLevel": 1,
+      "categories": [
+        "discriminatie",
+        "pesten-intimidatie-machtsmisbruik"
+      ],
+      "summary": "Ziet als teamlid hoe een nieuwe collega structureel wordt buitengesloten van veiligheidsbriefings en vernederende opmerkingen over afkomst krijgt. Wil als getuige veilig vastleggen wat hij zelf heeft gezien zonder geruchten toe te voegen.",
+      "timelineEntries": [
+        {
+          "entryId": "tl-201",
+          "createdAt": "2026-10-28T17:30:00+01:00",
+          "incidentDateOrPeriod": "2026-10-28 om 07:15",
+          "entryType": "own_memory",
+          "certainty": "exact",
+          "title": "Eigen waarneming tijdens ploegwissel",
+          "rawUserNarrative": "Ik stond er zelf bij toen de ploegverantwoordelijke weigerde de veiligheidsinstructie aan mijn collega te geven met een denigrerende verwijzing naar zijn afkomst.",
+          "categories": ["discriminatie", "pesten-intimidatie-machtsmisbruik"]
+        }
+      ]
+    },
+    {
+      "dossierId": "demo-dossier-03",
+      "personaName": "Fictief Dossier C — Financieel medewerker ontdekt subsidiefraude (Klokkenluiden)",
+      "roleType": "direct_reporter",
+      "currentDisclosureLevel": 4,
+      "categories": [
+        "bedrijfsfraude-klokkenluiden"
+      ],
+      "summary": "Ontdekt dat urenstaten voor een publiek gesubsidieerd project systematisch worden aangepast. Gebruikt SIGNAL Reality Check en SIGNAL Bridge om een dossier voor de Federale Ombudsman en FIRM-IFDH voor te bereiden.",
+      "timelineEntries": [
+        {
+          "entryId": "tl-301",
+          "createdAt": "2026-11-02T14:20:00+01:00",
+          "incidentDateOrPeriod": "2026-10-30",
+          "entryType": "document_evidence",
+          "certainty": "exact",
+          "title": "Verschil tussen interne urenregistratie en ingediende subsidieclaim Q3",
+          "rawUserNarrative": "Export van het originele urenoverzicht voordat mij werd gevraagd 420 niet-gepresteerde uren toe te voegen aan het projectdossier.",
+          "categories": ["bedrijfsfraude-klokkenluiden"],
+          "attachments": [
+            {
+              "attachmentId": "att-902",
+              "fileName": "vergelijking-uren-q3-synthetisch.pdf",
+              "mimeType": "application/pdf",
+              "sha256Hash": "9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08",
+              "timestampedAt": "2026-11-02T14:20:45+01:00"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "simulatedHandshakeScenario": {
+    "scenarioTitle": "Educatieve Simulatie: Hoe SIGNAL Handshake & Vierogencontrole werken (Fase 3)",
+    "legalPrecondition": "Uitsluitend actief binnen een wettelijk getoetst partnerdomein (art. 9/10 AVG) met expliciete, afzonderlijke toestemming van beide melders.",
+    "steps": [
+      {
+        "step": 1,
+        "title": "Onafhankelijke registratie door twee personen",
+        "description": "Melder 1 (2025) en Melder 2 (2026) leggen elk afzonderlijk een ervaring vast en geven in hun Consent Center expliciet toestemming voor beperkte patrooncontrole binnen een erkende partnerorganisatie.",
+        "automaticUserAlert": false
+      },
+      {
+        "step": 2,
+        "title": "Technische overeenkomst zonder automatische conclusie",
+        "description": "Het geïsoleerde vergelijkingsdomein detecteert een mogelijke overeenkomst op organisatie- en rolkenmerk. Geen enkele melder krijgt hiervan een automatische melding.",
+        "automaticUserAlert": false
+      },
+      {
+        "step": 3,
+        "title": "Menselijke Vierogencontrole & SIGNAL Fairness-toets",
+        "description": "Twee onafhankelijke, tot geheimhouding verplichte professionals controleren of er geen sprake is van naamgenoten, gekopieerde geruchten of gecoördineerd misbruik.",
+        "automaticUserAlert": false
+      },
+      {
+        "step": 4,
+        "title": "Afzonderlijke, individuele begeleiding (SIGNAL Handshake)",
+        "description": "Een vertrouwenspersoon of advocaat neemt afzonderlijk contact op met elke melder om opties te bespreken, zonder de naam of het verhaal van de ander te onthullen.",
+        "automaticUserAlert": false
+      },
+      {
+        "step": 5,
+        "title": "Vrijwillige coördinatie via bevoegde advocaat (SIGNAL Collective)",
+        "description": "Alleen als beide melders na individueel advies vrijwillig kiezen voor een gezamenlijke vervolgstap, bundelt een gemachtigde advocaat of toezichthouder de dossiers — zonder informele groepschat.",
+        "automaticUserAlert": false
+      }
+    ]
+  }
+}
