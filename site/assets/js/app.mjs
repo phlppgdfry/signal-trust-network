@@ -105,7 +105,7 @@ const INITIAL_DOSSIERS = [
         certainty: "exact",
         title: "Verschil tussen interne urenregistratie en ingediende subsidieclaim Q3",
         rawUserNarrative:
-          "Export van het originele urenoverzicht voordat mij schriftelijk werd gevraagd 420 niet-geprestesteerde uren toe te voegen aan het subsidiedossier.",
+          "Export van het originele urenoverzicht voordat mij schriftelijk werd gevraagd 420 niet-gepresteerde uren toe te voegen aan het subsidiedossier.",
         categories: ["bedrijfsfraude-klokkenluiden"],
         attachments: [
           {
@@ -1560,7 +1560,7 @@ export function initSignalApp() {
     emBtn.addEventListener("click", () => {
       state.emergencyOpen = !state.emergencyOpen;
       emDrawer.style.display = state.emergencyOpen ? "block" : "none";
-      btn.classList.toggle("active-toggle", state.emergencyOpen);
+      emBtn.classList.toggle("active-toggle", state.emergencyOpen);
     });
   }
 
