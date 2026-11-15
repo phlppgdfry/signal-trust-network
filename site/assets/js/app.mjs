@@ -12,13 +12,12 @@ import {
 const INITIAL_DOSSIERS = [
   {
     dossierId: "demo-dossier-01",
-    personaName: "Fictief Dossier A — Stagiaire in de creatieve sector",
+    personaName: "Dossier #DEMO-024 — Stagiaire creatieve sector",
     neutralPersonaName: "Dossier A — Werkplek- en begeleidingscontext",
     roleType: "direct_reporter",
-    currentDisclosureLevel: 2,
     categories: ["pesten-intimidatie-machtsmisbruik", "seksueel-grensoverschrijdend-gedrag"],
     summary:
-      "Ervaart tijdens een stage herhaaldelijk grensoverschrijdende berichten laat op de avond en druk om buiten werktijd alleen af te spreken om een beoordeling 'goed te laten verlopen'. Twijfelt tussen haar hogeschool en het Vlaams Meldpunt.",
+      "Ervaart tijdens een stage herhaaldelijk grensoverschrijdende berichten laat op de avond en druk om buiten werktijd alleen af te spreken. Twijfelt tussen haar hogeschool en het Vlaams Meldpunt.",
     timelineEntries: [
       {
         entryId: "tl-101",
@@ -59,20 +58,19 @@ const INITIAL_DOSSIERS = [
         certainty: "approximate_date",
         title: "Opmerking van oud-stagiair tijdens overdracht",
         rawUserNarrative:
-          "Mijn voorganger waarschuwde me in mijn eerste week kort: 'Zorg dat je nooit als laatste op kantoor achterblijft.' Ik twijfel of dat op maandag 7 of dinsdag 8 september was.",
+          "Mijn voorganger waarschuwde me in mijn eerste week kort: 'Zorg dat je nooit als laatste op kantoor achterblft.' Ik twijfel of dat op maandag 7 of dinsdag 8 september was.",
         categories: ["pesten-intimidatie-machtsmisbruik"]
       }
     ]
   },
   {
     dossierId: "demo-dossier-02",
-    personaName: "Fictief Dossier B — Collega / Getuige op logistieke afdeling (SIGNAL Witness)",
+    personaName: "Dossier #DEMO-031 — Collega-getuige (SIGNAL Witness)",
     neutralPersonaName: "Dossier B — Collega-observatie (Witness)",
     roleType: "witness",
-    currentDisclosureLevel: 1,
     categories: ["discriminatie", "pesten-intimidatie-machtsmisbruik"],
     summary:
-      "Ziet als teamlid hoe een nieuwe collega structureel wordt buitengesloten van veiligheidsbriefings en vernederende opmerkingen over afkomst krijgt. Gebruikt SIGNAL Witness om eigen feitelijke waarneming vast te leggen.",
+      "Ziet als teamlid hoe een nieuwe collega structureel wordt buitengesloten van veiligheidsbriefings en vernederende opmerkingen over afkomst krijgt. Gebruikt SIGNAL Witness.",
     timelineEntries: [
       {
         entryId: "tl-201",
@@ -89,13 +87,12 @@ const INITIAL_DOSSIERS = [
   },
   {
     dossierId: "demo-dossier-03",
-    personaName: "Fictief Dossier C — Financieel medewerker ontdekt subsidiefraude (Klokkenluiden)",
-    neutralPersonaName: "Dossier C — Financiële naleving (Klokkenluiden)",
+    personaName: "Dossier #DEMO-045 — Klokkenluider subsidiefraude",
+    neutralPersonaName: "Dossier C — Financiële naleving",
     roleType: "direct_reporter",
-    currentDisclosureLevel: 4,
     categories: ["bedrijfsfraude-klokkenluiden"],
     summary:
-      "Ontdekt dat urenstaten voor een publiek gesubsidieerd project systematisch worden aangepast. Gebruikt SIGNAL Reality Check en SIGNAL Bridge richting Federale Ombudsman en FIRM-IFDH.",
+      "Ontdekt dat urenstaten voor een publiek gesubsidieerd project systematisch worden aangepast. Gebruikt SIGNAL Reality Check en Bridge richting Federale Ombudsman / FIRM-IFDH.",
     timelineEntries: [
       {
         entryId: "tl-301",
@@ -103,7 +100,7 @@ const INITIAL_DOSSIERS = [
         incidentDateOrPeriod: "30 oktober 2026",
         entryType: "document_evidence",
         certainty: "exact",
-        title: "Verschil tussen interne urenregistratie en ingediende subsidieclaim Q3",
+        title: "Verschil tussen urenregistratie en ingediende subsidieclaim Q3",
         rawUserNarrative:
           "Export van het originele urenoverzicht voordat mij schriftelijk werd gevraagd 420 niet-gepresteerde uren toe te voegen aan het subsidiedossier.",
         categories: ["bedrijfsfraude-klokkenluiden"],
@@ -123,70 +120,96 @@ const INITIAL_DOSSIERS = [
 
 const TOUR_STEPS = [
   {
-    screen: "screen-home",
-    title: "Stap 1/6 — Van klachtenformulier naar vertrouwensnetwerk (SIGNAL Zero)",
-    text: "Bezoekers kunnen zich oriënteren zonder account, login of cookies. Bekijk de 5 niveaus van Safe Disclosure en de 6 samenwerkende domeinen."
+    page: "home",
+    title: "Stap 1/6 — Rustig overzicht & 5 Niveaus van Safe Disclosure",
+    text: "Bezoekers oriënteren zich zonder account (SIGNAL Zero) en zien direct de 3 pijlers: Vault, Compass en Bridge."
   },
   {
-    screen: "screen-compass",
-    title: "Stap 2/6 — SIGNAL Compass & Reality Check",
-    text: "Kies wat je nu nodig hebt, selecteer één of meer categorieën (of de SIGNAL Witness / Guardian route) en zie direct welke Belgische partnerorganisatie bevoegd is."
+    page: "report",
+    title: "Stap 2/6 — 3-Staps SIGNAL Compass & Reality Check",
+    text: "Selecteer één of meer categorieën, je rol (melder, getuige, minderjarige) en bekijk direct welke Belgische organisaties bevoegd zijn."
   },
   {
-    screen: "screen-vault",
-    title: "Stap 3/6 — Mijn Veilige Ruimte (SIGNAL Timeline & Memory)",
-    text: "Ervaar hoe eigen herinneringen (zeker vs. onzeker), bewijsstukken met SHA-256 hash en latere aanvullingen strikt gescheiden blijven zonder dat de originele getuigenis ooit wordt overschreven."
+    page: "help",
+    title: "Stap 3/6 — Hulpkanalen & Geverifieerde Trust Passports",
+    text: "Bekijk het beroepsgeheim, toezicht en de contactkanalen van 1712, ZSG, Vlaams Meldpunt, Unia en de Federale Ombudsman."
   },
   {
-    screen: "screen-bridge",
-    title: "Stap 4/6 — SIGNAL Bridge & Trust Passport",
-    text: "Stel zelf een overdrachtspakket samen, controleer het Trust Passport van de ontvanger en genereer een overdrachtsbewijs zodat je je verhaal niet opnieuw hoeft te vertellen."
+    page: "vault",
+    title: "Stap 4/6 — Mijn Privékluis (SIGNAL Timeline, Memory & Continuity)",
+    text: "Voeg een eigen notitie toe met SHA-256 hash of plaats een latere aanvulling zonder het origineel ooit te overschrijven."
   },
   {
-    screen: "screen-handshake",
-    title: "Stap 5/6 — Safe Matching & SIGNAL Handshake Simulator (Fase 3)",
-    text: "Test waarom automatische match-meldingen verboden zijn en hoe vierogencontrole, SIGNAL Fairness en individuele begeleiding werken."
+    page: "bridge",
+    title: "Stap 5/6 — SIGNAL Bridge (Warme overdracht met Bridge Token)",
+    text: "Kies zelf welke items meegaan naar een partner, bevestig de juridische verwachtingen en ontvang een overdrachtscode."
   },
   {
-    screen: "screen-workspace",
-    title: "Stap 6/6 — De Gouden Architectuurregel & Governance",
-    text: "Test in de Professional Workspace hoe zelfs een systeembeheerder of betalende B2B-klant géén toegang krijgt tot dossiers, en bekijk de 8 statutaire waarborgen."
+    page: "cases",
+    title: "Stap 6/6 — Gouden Architectuurregel & Fase 3 Handshake Simulator",
+    text: "Test hoe zelfs een platformbeheerder of betalende werkgever geblokkeerd wordt en hoe Safe Matching (ADR-002) werkt."
   }
 ];
 
+const PARTNER_URLS = {
+  "org-1712": "https://www.1712.be/",
+  "org-zsg": "https://www.zsg.belgium.be/",
+  "org-vlaams-meldpunt": "https://www.vlaanderen.be/vlaams-meldpunt-grensoverschrijdend-gedrag",
+  "org-unia": "https://www.unia.be/",
+  "org-ombudsman-firm": "https://www.federalombudsman.be/",
+  "org-meldpunt-concurrentie": "https://consumerconnect.be/"
+};
+
 const state = {
-  activeScreen: "screen-home",
+  activePage: "home",
   invisibleMode: false,
   emergencyOpen: false,
   tourActive: false,
   tourIndex: 0,
-  // Compass state
+  // Compass wizard
+  wizardStep: 0,
   compassNeed: "explore",
   compassRole: "direct_reporter",
   compassRecent72h: false,
   compassCategories: ["pesten-intimidatie-machtsmisbruik"],
-  // Consent Center state
-  consentMatrix: {
-    localVault: true,
-    evidenceHash: true,
-    bridgeTransfer: false,
-    patternCheckPhase3: false,
-    anonymousPulseStats: false
-  },
-  // Vault & Dossiers state
+  // Help filter
+  helpFilter: "all",
+  // Vault
   dossiers: structuredClone(INITIAL_DOSSIERS),
   activeDossierId: "demo-dossier-01",
   aiStructuredPreviewOpen: false,
   continuityExportJson: null,
-  // Bridge state
+  // Bridge
   bridgeSelectedEntries: ["tl-101", "tl-102"],
   bridgeRecipientId: "org-vlaams-meldpunt",
   bridgeDisclosureLevel: "pseudonymous_bridge",
-  bridgeGoal: "listening_and_advice",
   bridgeConsentNotPolice: true,
   bridgeConsentRevocability: true,
   lastCreatedBridgePackage: null,
-  // Handshake Simulator state
+  // Cases subtabs & simulators
+  casesTab: "workspace",
+  wsSelectedActor: "partner_caseworker",
+  wsPartnerOrg: "org-vlaams-meldpunt",
+  wsAuditLog: [
+    {
+      time: "2026-11-15 09:12:04",
+      actor: "Melder (Vault Owner)",
+      action: "Tijdlijnitem tl-102 + SHA-256 hash geregistreerd in KMS Domein B",
+      result: "ALLOWED"
+    },
+    {
+      time: "2026-11-15 09:18:22",
+      actor: "SIGNAL Bridge Service",
+      action: "Deelpakket (2 items) versleuteld voor Vlaams Meldpunt",
+      result: "DELIVERED"
+    },
+    {
+      time: "2026-11-15 09:24:10",
+      actor: "Platform SysAdmin (Test)",
+      action: "Poging tot lezen van ruwe Vault-tabel zonder gebruikerssleutel",
+      result: "BLOCKED"
+    }
+  ],
   hsPhase: 3,
   hsLegalApproved: true,
   hsReviewer1: true,
@@ -195,421 +218,327 @@ const state = {
   hsNamesakeFlag: false,
   hsReporter1Consent: false,
   hsReporter2Consent: false,
-  // Workspace Role Tester state
-  wsSelectedActor: "partner_caseworker",
-  wsPartnerOrg: "org-vlaams-meldpunt",
-  wsAuditLog: [
-    {
-      time: "2026-11-14 09:12:04",
-      actor: "Melder (Vault Owner)",
-      action: "Tijdlijnitem tl-102 + SHA-256 hash geregistreerd in KMS Domein B",
-      result: "ALLOWED (Eigen kluissleutel)"
-    },
-    {
-      time: "2026-11-14 09:18:22",
-      actor: "SIGNAL Bridge Service",
-      action: "Deelpakket (2 van 3 items) versleuteld voor publieke sleutel Vlaams Meldpunt",
-      result: "DELIVERED (Pseudoniem)"
-    },
-    {
-      time: "2026-11-14 09:24:10",
-      actor: "Platform SysAdmin (Test)",
-      action: "Poging tot lezen van ruwe Vault-tabel zonder gebruikerssleutel",
-      result: "BLOCKED (Gouden Architectuurregel)"
-    }
-  ]
+  // Trust subtabs & consent
+  trustTab: "principles",
+  consentMatrix: {
+    localVault: true,
+    evidenceHash: true,
+    bridgeTransfer: false,
+    patternCheckPhase3: false,
+    anonymousPulseStats: false
+  }
 };
 
 function getActiveDossier() {
   return state.dossiers.find((d) => d.dossierId === state.activeDossierId) || state.dossiers[0];
 }
 
-export function switchScreen(screenId) {
-  state.activeScreen = screenId;
-  document.querySelectorAll(".screen-section").forEach((el) => {
-    el.classList.toggle("active", el.id === screenId);
-  });
-  document.querySelectorAll(".nav-tab").forEach((btn) => {
-    btn.classList.toggle("active", btn.dataset.screen === screenId);
-  });
-  window.scrollTo({ top: 0, behavior: "smooth" });
+function showToast(msg) {
+  const el = document.getElementById("toast");
+  if (!el) return;
+  el.textContent = msg;
+  el.classList.add("show");
+  setTimeout(() => el.classList.remove("show"), 3200);
 }
 
-function renderCompassScreen() {
-  const container = document.getElementById("compass-dynamic-root");
-  if (!container) return;
+export function gotoPage(pageId) {
+  state.activePage = pageId;
+  document.querySelectorAll(".section").forEach((s) => s.classList.toggle("active", s.id === pageId));
+  document.querySelectorAll("[data-page]").forEach((b) => b.classList.toggle("active", b.dataset.page === pageId));
+  window.scrollTo({ top: 0, behavior: "smooth" });
+  if (pageId === "report") renderWizard();
+  if (pageId === "help") renderHelp();
+  if (pageId === "vault") renderVault();
+  if (pageId === "bridge") renderBridge();
+  if (pageId === "cases") renderCases();
+  if (pageId === "trust") renderTrust();
+}
 
-  const evalResult = evaluateCompassRoute({
-    need: state.compassNeed,
-    categoryIds: state.compassCategories,
-    roleContext: state.compassRole,
-    recentIncidentUnder72h: state.compassRecent72h
+// 1. COMPASS WIZARD (3 stappen, uitgebreide versie van de eerste demo)
+function renderWizard() {
+  const stepNumEl = document.getElementById("stepnum");
+  if (stepNumEl) stepNumEl.textContent = String(state.wizardStep + 1);
+  document.querySelectorAll(".steps .step").forEach((el, i) => {
+    el.classList.toggle("done", i <= state.wizardStep);
   });
 
-  const needs = [
-    { id: "explore", label: "Ik weet niet zeker of wat er gebeurd is 'meldbaar' is", desc: "Bekijk eerst rustig voorbeelden, rechten en definities zonder iets op te slaan." },
-    { id: "document_privately", label: "Ik wil iets voor mezelf vastleggen voordat ik details vergeet", desc: "Start een chronologische tijdlijn in je persoonlijke kluis zonder dat iemand bericht krijgt." },
-    { id: "talk_to_human", label: "Ik wil veilig en vertrouwelijk met iemand kunnen praten", desc: "Vind direct de juiste erkende hulplijn of vertrouwenspersoon met beroepsgeheim." },
-    { id: "check_patterns", label: "Ik vraag me af of anderen iets soortgelijks meemaakten", desc: "Lees hoe gecontroleerde patroonherkenning en onafhankelijke begeleiding werken." },
-    { id: "prepare_official", label: "Ik wil weten hoe ik een officiële melding of overdracht voorbereid", desc: "Bekijk de bevoegde instanties en stel een gecontroleerd SIGNAL Bridge-pakket samen." }
-  ];
+  const w = document.getElementById("wizard");
+  if (!w) return;
 
-  const roles = [
-    { id: "direct_reporter", label: "Ik heb dit zelf meegemaakt" },
-    { id: "witness", label: "Ik ben getuige, collega of omstander (SIGNAL Witness)" },
-    { id: "minor_guardian", label: "Het gaat om een minderjarige of kwetsbare persoon (SIGNAL Guardian)" },
-    { id: "urgent_danger", label: "Er is mogelijk acuut gevaar of medische nood" }
-  ];
-
-  container.innerHTML = `
-    <div class="grid-2">
-      <div>
-        <div class="panel" style="margin-bottom: 1.25rem;">
-          <h3>Stap 1 — Wat zou jou op dit moment het meest helpen?</h3>
-          <p>Je hoeft niet te beginnen met een klachtenformulier. Kies waar je nu behoefte aan hebt:</p>
-          ${needs
-            .map(
-              (n) => `
-            <button type="button" class="choice-card ${state.compassNeed === n.id ? "selected" : ""}" data-compass-need="${n.id}">
-              <div class="choice-card-title">
-                <span>${n.label}</span>
-                ${state.compassNeed === n.id ? '<span class="badge badge-trust">Geselecteerd</span>' : ""}
+  if (state.wizardStep === 0) {
+    w.innerHTML = `
+      <h2 style="margin:0 0 6px; font-family:'Manrope',sans-serif;">Waar gaat het ongeveer over? (Meerdere keuzes mogelijk)</h2>
+      <p class="sub" style="margin-bottom:14px;">Kies één of meer van de 8 Belgische domeinen. Niets wordt opgeslagen of verstuurd.</p>
+      <div class="option-grid">
+        ${SIGNAL_CATEGORIES.map((cat) => {
+          const isSel = state.compassCategories.includes(cat.id);
+          const title = state.invisibleMode ? cat.neutralLabel : cat.name;
+          return `
+            <button type="button" class="option ${isSel ? "selected" : ""}" data-wiz-cat="${cat.id}">
+              <div style="display:flex; justify-content:space-between; gap:8px; align-items:flex-start;">
+                <span>${title}</span>
+                <span class="pill ${cat.wave === 3 ? "pill-caution" : ""}">Golf ${cat.wave}</span>
               </div>
-              <p class="choice-card-desc">${n.desc}</p>
+              <small>${cat.examples}</small>
             </button>
-          `
-            )
-            .join("")}
-        </div>
-
-        <div class="panel" style="margin-bottom: 1.25rem;">
-          <h3>Stap 2 — Vanuit welke rol zoek je informatie?</h3>
-          ${roles
-            .map(
-              (r) => `
-            <button type="button" class="choice-card ${state.compassRole === r.id ? "selected" : ""}" data-compass-role="${r.id}">
-              <div class="choice-card-title">
-                <span>${r.label}</span>
-                ${state.compassRole === r.id ? '<span class="badge badge-trust">Actief</span>' : ""}
-              </div>
-            </button>
-          `
-            )
-            .join("")}
-          <label style="display:flex; align-items:center; gap:0.6rem; margin-top:0.75rem; font-size:0.9rem; cursor:pointer;">
-            <input type="checkbox" id="compass-72h-toggle" ${state.compassRecent72h ? "checked" : ""} />
-            <span>Het voorval vond minder dan 72 uur tot 7 dagen geleden plaats (tijdsgevoelig voor medisch/forensisch onderzoek)</span>
-          </label>
-        </div>
-
-        <div class="panel">
-          <h3>Stap 3 — Waar gaat de situatie over? (Meerdere keuzes mogelijk)</h3>
-          <p>Een ervaring valt vaak onder meerdere thema's tegelijk. Klik om thema's te combineren:</p>
-          ${SIGNAL_CATEGORIES.map((cat) => {
-            const isSel = state.compassCategories.includes(cat.id);
-            const displayName = state.invisibleMode ? cat.neutralLabel : cat.name;
-            return `
-              <button type="button" class="choice-card ${isSel ? "selected" : ""}" data-compass-cat="${cat.id}">
-                <div class="choice-card-title">
-                  <span>${displayName}</span>
-                  <span class="badge ${cat.wave === 3 ? "badge-caution" : "badge-trust"}">Golf ${cat.wave} · Risico: ${cat.riskLabel}</span>
-                </div>
-                <p class="choice-card-desc">${cat.examples}</p>
-              </button>
-            `;
-          }).join("")}
-        </div>
+          `;
+        }).join("")}
       </div>
-
-      <div>
-        ${evalResult.urgentAlerts
+    `;
+    w.querySelectorAll("[data-wiz-cat]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const cid = btn.dataset.wizCat;
+        if (state.compassCategories.includes(cid)) {
+          if (state.compassCategories.length > 1) {
+            state.compassCategories = state.compassCategories.filter((x) => x !== cid);
+          }
+        } else {
+          state.compassCategories = [...state.compassCategories, cid];
+        }
+        renderWizard();
+      });
+    });
+  } else if (state.wizardStep === 1) {
+    const needs = [
+      ["explore", "Ik weet niet zeker of dit 'meldbaar' is", "Bekijk eerst rustig voorbeelden, definities en rechten."],
+      ["document_privately", "Ik wil mijn verhaal ordenen in een tijdlijn", "Bekijk hoe eigen herinneringen en bewijsstukken werken."],
+      ["talk_to_human", "Ik wil vertrouwelijk met iemand praten", "Vind direct een erkende hulplijn met beroepsgeheim."],
+      ["prepare_official", "Ik wil een overdracht of formele stap voorbereiden", "Bereid een gecontroleerd SIGNAL Bridge-pakket voor."]
+    ];
+    const roles = [
+      ["direct_reporter", "Ik heb dit zelf meegemaakt"],
+      ["witness", "Ik ben getuige of collega (SIGNAL Witness)"],
+      ["minor_guardian", "Het gaat om een minderjarige (SIGNAL Guardian)"],
+      ["urgent_danger", "Er is mogelijk acuut fysiek gevaar"]
+    ];
+    w.innerHTML = `
+      <h2 style="margin:0 0 6px; font-family:'Manrope',sans-serif;">Wat helpt je nu, en vanuit welke rol kijk je?</h2>
+      <p class="sub" style="margin-bottom:12px;">Jouw antwoord bepaalt deterministisch (zonder AI) welke bescherming en partners we tonen.</p>
+      <div class="option-grid">
+        ${needs
           .map(
-            (alert) => `
-          <div class="panel-urgent" style="margin-bottom: 1rem;">
-            <h3 style="margin:0 0 0.35rem 0; color:var(--urgent-ink);">${alert.title}</h3>
-            <p style="margin:0; color:var(--ink-primary); font-size:0.92rem;">${alert.message}</p>
-          </div>
+            (n) => `
+          <button type="button" class="option ${state.compassNeed === n[0] ? "selected" : ""}" data-wiz-need="${n[0]}">
+            ${n[1]}<small>${n[2]}</small>
+          </button>
         `
           )
           .join("")}
-
-        ${
-          evalResult.witnessGuidance
-            ? `
-          <div class="panel-soft" style="margin-bottom: 1rem;">
-            <h3>${evalResult.witnessGuidance.protocol}</h3>
-            <p style="margin:0; font-size:0.92rem;">${evalResult.witnessGuidance.rule}</p>
-          </div>
+      </div>
+      <label class="field-label">Vanuit welke rol zoek je informatie?</label>
+      <div class="option-grid">
+        ${roles
+          .map(
+            (r) => `
+          <button type="button" class="option ${state.compassRole === r[0] ? "selected" : ""}" data-wiz-role="${r[0]}" style="min-height:auto; padding:13px 16px;">
+            ${r[1]}
+          </button>
         `
-            : ""
-        }
+          )
+          .join("")}
+      </div>
+      <label style="display:flex; align-items:center; gap:8px; font-size:12.5px; margin-top:10px; cursor:pointer;">
+        <input type="checkbox" id="wiz-72h" ${state.compassRecent72h ? "checked" : ""} />
+        <span>Het voorval vond minder dan 72 uur tot 7 dagen geleden plaats (tijdsgevoelig voor medisch/forensisch sporenbehoud)</span>
+      </label>
+    `;
+    w.querySelectorAll("[data-wiz-need]").forEach((b) =>
+      b.addEventListener("click", () => {
+        state.compassNeed = b.dataset.wizNeed;
+        renderWizard();
+      })
+    );
+    w.querySelectorAll("[data-wiz-role]").forEach((b) =>
+      b.addEventListener("click", () => {
+        state.compassRole = b.dataset.wizRole;
+        renderWizard();
+      })
+    );
+    const cb72 = w.querySelector("#wiz-72h");
+    if (cb72) {
+      cb72.addEventListener("change", (e) => {
+        state.compassRecent72h = e.target.checked;
+      });
+    }
+  } else {
+    const res = evaluateCompassRoute({
+      need: state.compassNeed,
+      categoryIds: state.compassCategories,
+      roleContext: state.compassRole,
+      recentIncidentUnder72h: state.compassRecent72h
+    });
 
-        <div class="panel" style="margin-bottom: 1.25rem; border-color: var(--deep-trust);">
-          <span class="badge badge-trust" style="margin-bottom:0.5rem;">Deterministische Wegwijzer · Geen AI-beslissing</span>
-          <h3>Jouw aanbevolen route: Safe Disclosure Niveau ${evalResult.recommendedDisclosureLevel}</h3>
-          <p>Op basis van jouw selectie (${evalResult.matchedCategories.length} categorie(ën)) zijn deze erkende Belgische voorzieningen bevoegd:</p>
+    w.innerHTML = `
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+        <h2 style="margin:0; font-family:'Manrope',sans-serif;">Jouw persoonlijke SIGNAL Compass-resultaat</h2>
+        <span class="pill">Safe Disclosure Niveau ${res.recommendedDisclosureLevel} · Deterministisch (Geen AI)</span>
+      </div>
 
-          ${evalResult.recommendedPartners
-            .map(
-              (p) => `
-            <div class="panel-soft" style="margin-bottom: 0.85rem;">
-              <div style="display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:0.5rem;">
-                <strong style="color:var(--deep-trust); font-size:1rem;">${p.name}</strong>
-                <span class="badge badge-trust">${p.badgeText}</span>
+      ${res.urgentAlerts
+        .map(
+          (a) => `
+        <div class="urgent-note">
+          <strong>${a.title}</strong><br />${a.message}
+        </div>
+      `
+        )
+        .join("")}
+
+      ${
+        res.witnessGuidance
+          ? `<div class="panel-soft" style="margin-top:14px;"><strong>${res.witnessGuidance.protocol}</strong><p style="margin:4px 0 0; font-size:12.5px;">${res.witnessGuidance.rule}</p></div>`
+          : ""
+      }
+
+      <div class="grid-2" style="margin-top:18px;">
+        <div>
+          <h3 style="margin:0 0 10px; font-family:'Manrope',sans-serif; font-size:15px;">Bevoegde Belgische Organisaties</h3>
+          <div class="route-list">
+            ${res.recommendedPartners
+              .map(
+                (p) => `
+              <div class="route" style="padding:15px;">
+                <div style="flex:1;">
+                  <div style="display:flex; justify-content:space-between; gap:8px; flex-wrap:wrap;">
+                    <h3>${p.shortName}</h3>
+                    <span class="pill">${p.badgeText}</span>
+                  </div>
+                  <p style="margin-top:4px;">${p.confidentialityRegime.secrecyArticle} · Tel: <strong>${p.accessChannels.phoneNumber}</strong></p>
+                  <div style="margin-top:10px; display:flex; gap:8px; flex-wrap:wrap;">
+                    <button type="button" class="primary" style="padding:8px 13px; font-size:12px;" data-wiz-bridge="${p.organizationId}">Bereid Bridge voor</button>
+                    <a class="secondary" style="padding:7px 12px; font-size:12px;" target="_blank" rel="noopener noreferrer" href="${PARTNER_URLS[p.organizationId] || "#"}">Website ↗</a>
+                  </div>
+                </div>
               </div>
-              <p style="font-size:0.88rem; margin:0.4rem 0;">${p.legalBasisSummary}</p>
-              <div style="font-size:0.82rem; color:var(--ink-secondary); display:flex; flex-wrap:wrap; gap:0.75rem; margin-top:0.5rem;">
-                <span><strong>Geheimhouding:</strong> ${p.confidentialityRegime.secrecyArticle}</span>
-                <span><strong>Telefoon:</strong> ${p.accessChannels.phoneNumber}</span>
-              </div>
-              <div style="margin-top:0.65rem; display:flex; gap:0.5rem; flex-wrap:wrap;">
-                <button type="button" class="btn btn-primary" data-goto-bridge="${p.organizationId}">Bereid SIGNAL Bridge-overdracht voor</button>
-                <button type="button" class="btn" data-goto-screen="screen-network">Bekijk volledig Trust Passport</button>
-              </div>
-            </div>
-          `
-            )
-            .join("")}
+            `
+              )
+              .join("")}
+          </div>
         </div>
 
-        <div class="panel-caution" style="margin-bottom: 1.25rem;">
-          <h3 style="margin-top:0; color:var(--caution-ink);">SIGNAL Reality Check — Wat je juridisch moet weten</h3>
-          ${evalResult.matchedCategories
+        <div>
+          <h3 style="margin:0 0 10px; font-family:'Manrope',sans-serif; font-size:15px;">SIGNAL Reality Check &amp; Evidence Coach</h3>
+          ${res.matchedCategories
             .map(
               (c) => `
-            <div style="margin-bottom: 0.85rem; padding-bottom: 0.85rem; border-bottom: 1px solid var(--caution-border);">
-              <strong>${state.invisibleMode ? c.neutralLabel : c.name} (${c.gdprArticles.join(" · ")})</strong>
-              <p style="margin:0.3rem 0; font-size:0.88rem; color:var(--ink-primary);"><strong>Wat dit wél is:</strong> ${c.realityCheck.whatItIs}</p>
-              <p style="margin:0; font-size:0.88rem; color:var(--caution-ink);"><strong>Wat dit níét is:</strong> ${c.realityCheck.whatItIsNot}</p>
+            <div class="small-note" style="margin-top:0; margin-bottom:10px;">
+              <strong>${state.invisibleMode ? c.neutralLabel : c.name}</strong><br />
+              <span style="color:#2b4f4d;"><strong>Wél:</strong> ${c.realityCheck.whatItIs}</span><br />
+              <span><strong>Níét:</strong> ${c.realityCheck.whatItIsNot}</span>
             </div>
           `
             )
             .join("")}
-        </div>
-
-        <div class="panel">
-          <h3>SIGNAL Evidence Coach — Veilig & rechtmatig documenteren</h3>
-          <ul style="margin:0; padding-left:1.2rem; font-size:0.9rem; color:var(--ink-secondary);">
-            ${evalResult.combinedEvidenceTips.map((tip) => `<li style="margin-bottom:0.4rem;">${tip}</li>`).join("")}
-          </ul>
-          <div style="margin-top:1rem;">
-            <button type="button" class="btn btn-primary" data-goto-screen="screen-vault">Open Mijn Veilige Ruimte (Private Vault)</button>
+          <div class="panel-soft">
+            <strong style="font-size:12.5px;">Tips om zuiver bewijs te bewaren:</strong>
+            <ul style="margin:6px 0 0; padding-left:18px; font-size:12px; color:#425f5d;">
+              ${res.combinedEvidenceTips.map((t) => `<li style="margin-bottom:4px;">${t}</li>`).join("")}
+            </ul>
           </div>
         </div>
       </div>
-    </div>
-  `;
+    `;
 
-  // Bind events
-  container.querySelectorAll("[data-compass-need]").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      state.compassNeed = btn.dataset.compassNeed;
-      renderCompassScreen();
-    });
-  });
-
-  container.querySelectorAll("[data-compass-role]").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      state.compassRole = btn.dataset.compassRole;
-      renderCompassScreen();
-    });
-  });
-
-  const toggle72 = container.querySelector("#compass-72h-toggle");
-  if (toggle72) {
-    toggle72.addEventListener("change", (e) => {
-      state.compassRecent72h = e.target.checked;
-      renderCompassScreen();
+    w.querySelectorAll("[data-wiz-bridge]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        state.bridgeRecipientId = btn.dataset.wizBridge;
+        gotoPage("bridge");
+      });
     });
   }
 
-  container.querySelectorAll("[data-compass-cat]").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const cid = btn.dataset.compassCat;
-      if (state.compassCategories.includes(cid)) {
-        if (state.compassCategories.length > 1) {
-          state.compassCategories = state.compassCategories.filter((x) => x !== cid);
-        }
-      } else {
-        state.compassCategories = [...state.compassCategories, cid];
-      }
-      renderCompassScreen();
-    });
-  });
-
-  container.querySelectorAll("[data-goto-bridge]").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      state.bridgeRecipientId = btn.dataset.gotoBridge;
-      renderBridgeScreen();
-      switchScreen("screen-bridge");
-    });
-  });
-
-  container.querySelectorAll("[data-goto-screen]").forEach((btn) => {
-    btn.addEventListener("click", () => switchScreen(btn.dataset.gotoScreen));
-  });
+  const backBtn = document.getElementById("back");
+  const nextBtn = document.getElementById("next");
+  if (backBtn) backBtn.style.visibility = state.wizardStep === 0 ? "hidden" : "visible";
+  if (nextBtn) {
+    nextBtn.textContent = state.wizardStep === 2 ? "Open Mijn Privékluis →" : "Volgende →";
+  }
 }
 
-function renderConsentScreen() {
-  const root = document.getElementById("consent-dynamic-root");
-  if (!root) return;
+// 2. HELP & TRUST PASSPORTS
+function renderHelp() {
+  const routesEl = document.getElementById("routes");
+  if (!routesEl) return;
 
-  const items = [
-    {
-      key: "localVault",
-      title: "Persoonlijke kluis & tijdlijn (KMS Sleuteldomein B)",
-      purpose: "Enkel voor jezelf bewaren van notities en chronologie.",
-      recipient: "Niemand (uitsluitend jijzelf)",
-      erasureRule: "100% direct en onvoorwaardelijk wisbaar door jou (Crypto-shredding)."
-    },
-    {
-      key: "evidenceHash",
-      title: "SHA-256 Bewijsintegriteit & Tijdregistratie",
-      purpose: "Vastleggen dat een bijlage sinds opname in de kluis niet is gewijzigd.",
-      recipient: "Geen externe partij",
-      erasureRule: "Volledig wisbaar samen met je persoonlijke kluis."
-    },
-    {
-      key: "bridgeTransfer",
-      title: "SIGNAL Bridge — Warme overdracht naar één gekozen partner",
-      purpose: "Geselecteerde tijdlijnitems overdragen zodat je je verhaal niet opnieuw hoeft te vertellen.",
-      recipient: "Enkel de door jou geselecteerde Belgische partnerorganisatie",
-      erasureRule: "Vóór verzending direct intrekbaar. Ná verzending geldt het wettelijk bewaarbeleid en beroepsgeheim van de ontvangende instantie (art. 17 lid 3 AVG)."
-    },
-    {
-      key: "patternCheckPhase3",
-      title: "Safe Matching — Geïsoleerde patrooncontrole (Fase 3 · Standaard Uit)",
-      purpose: "Controleren of er binnen een wettelijk toegelaten partnerdomein een onafhankelijke overeenkomst bestaat.",
-      recipient: "Geïsoleerd vierogen-reviewteam (nooit andere melders rechtstreeks)",
-      erasureRule: "Standaard uitgeschakeld in MVP (ADR-002). Toestemming kan op elk moment worden ingetrokken voor toekomstige vergelijkingen."
-    },
-    {
-      key: "anonymousPulseStats",
-      title: "SIGNAL Pulse — Geaggregeerde maatschappelijke statistiek (k-anoniem)",
-      purpose: "Uitsluitend anonieme telling op sector- en categorieniveau zonder namen of verhalen.",
-      recipient: "Openbaar jaarverslag / Wetenschappelijk onderzoek",
-      erasureRule: "Bevat geen persoonsgegevens of herleidbare verhalen."
-    }
-  ];
+  const filtered = PARTNER_PASSPORTS.filter(
+    (p) => state.helpFilter === "all" || p.supportedCategories.includes(state.helpFilter)
+  );
 
-  root.innerHTML = `
-    <div class="grid-2">
-      <div class="panel">
-        <h3>Granulaire Toestemmingsmatrix (Consent Center)</h3>
-        <p>Bij SIGNAL geef je nooit één algemene toestemming. Je beslist per onderdeel en ziet direct wie toegang heeft en hoe gegevenswissing (artikel 17 AVG) werkt:</p>
-        ${items
-          .map(
-            (item) => `
-          <div style="padding:0.9rem 0; border-bottom:1px solid var(--border-subtle);">
-            <div style="display:flex; justify-content:space-between; align-items:center; gap:1rem;">
-              <strong style="color:var(--deep-trust);">${item.title}</strong>
-              <label style="display:inline-flex; align-items:center; gap:0.4rem; cursor:pointer; font-size:0.86rem; font-weight:600;">
-                <input type="checkbox" data-consent-toggle="${item.key}" ${state.consentMatrix[item.key] ? "checked" : ""} />
-                <span>${state.consentMatrix[item.key] ? "Ingeschakeld" : "Uitgeschakeld"}</span>
-              </label>
-            </div>
-            <p style="margin:0.3rem 0; font-size:0.86rem;"><strong>Doel:</strong> ${item.purpose}</p>
-            <p style="margin:0.2rem 0; font-size:0.84rem;"><strong>Ontvanger:</strong> <span class="badge badge-trust">${item.recipient}</span></p>
-            <p style="margin:0.2rem 0 0 0; font-size:0.82rem; color:var(--caution-ink);"><strong>Recht op wissing (Art. 17 AVG):</strong> ${item.erasureRule}</p>
-          </div>
-        `
-          )
-          .join("")}
-      </div>
-
-      <div>
-        <div class="panel-soft" style="margin-bottom: 1.25rem;">
-          <h3>De 5 Niveaus van Safe Disclosure (ADR-005)</h3>
-          <p>Je bepaalt zelf op welk niveau je SIGNAL gebruikt — van nul persoonsgegevens tot een begeleide formele stap:</p>
-          <ol style="padding-left:1.25rem; margin:0; font-size:0.9rem;">
-            <li style="margin-bottom:0.5rem;"><strong>Niveau 1 — SIGNAL Zero:</strong> Oriënteren zonder account, login of persoonsgegevens.</li>
-            <li style="margin-bottom:0.5rem;"><strong>Niveau 2 — Private Vault:</strong> Persoonlijk en versleuteld documenteren op eigen tempo.</li>
-            <li style="margin-bottom:0.5rem;"><strong>Niveau 3 — Vertrouwelijk Advies:</strong> Anoniem of vertrouwelijk sparren met een erkende hulplijn (bijv. 1712 of ZSG).</li>
-            <li style="margin-bottom:0.5rem;"><strong>Niveau 4 — SIGNAL Bridge:</strong> Zelf geselecteerde dossieritems overdragen aan een geverifieerde partnerorganisatie.</li>
-            <li><strong>Niveau 5 — Formeel of Collectief:</strong> Onder professionele of juridische begeleiding een formele procedure starten.</li>
-          </ol>
+  routesEl.innerHTML = filtered
+    .map(
+      (p) => `
+    <div class="route">
+      <div class="ico">${p.organizationId === "org-zsg" ? "✚" : p.organizationId === "org-1712" ? "♡" : "◇"}</div>
+      <div style="flex:1;">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+          <h3>${p.name}</h3>
+          <span class="pill">${p.badgeText}</span>
         </div>
-
-        <div class="panel">
-          <h3>Veiligheid op een gecontroleerd toestel (SIGNAL Invisible & Safe Exit)</h3>
-          <p>Sommige mensen worden thuis of op het werk digitaal in de gaten gehouden. Test hier direct de twee beschermingsfuncties:</p>
-          <div style="display:flex; gap:0.75rem; flex-wrap:wrap; margin-top:0.75rem;">
-            <button type="button" class="btn btn-primary" id="consent-toggle-invisible">
-              ${state.invisibleMode ? "Schakel SIGNAL Invisible (Discrete modus) UIT" : "Schakel SIGNAL Invisible (Discrete modus) IN"}
-            </button>
-            <button type="button" class="btn btn-safe-exit" id="consent-trigger-safe-exit">
-              Test Safe Exit (Veilige Uitgang)
-            </button>
-          </div>
-          <div class="panel-caution" style="margin-top:1rem;">
-            <strong>Eerlijke technische toelichting:</strong> Een Safe Exit-knop sluit en wist direct jouw actieve sessie in deze applicatie, maar kan zonder privévenster (incognitomodus) niet automatisch je volledige browsergeschiedenis wissen. Gebruik op een onveilig toestel daarom bij voorkeur een privévenster of bel gratis naar <strong>1712</strong> (dit nummer verschijnt niet op de telefoonrekening).
-          </div>
+        <p style="margin-top:4px;">${p.legalBasisSummary}</p>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:8px; margin-top:10px; font-size:12px; color:#4f6869; background:#f6faf8; padding:10px 12px; border-radius:10px;">
+          <div><strong>Bevoegdheid:</strong> ${p.jurisdiction}</div>
+          <div><strong>Geheimhouding:</strong> ${p.confidentialityRegime.secrecyArticle}</div>
+          <div><strong>Toezicht:</strong> ${p.independentOversightBody}</div>
+          <div><strong>Contact:</strong> ${p.accessChannels.phoneNumber}</div>
+        </div>
+        <div style="margin-top:12px; display:flex; gap:8px; flex-wrap:wrap;">
+          <button type="button" class="primary" style="padding:8px 14px; font-size:12px;" data-help-bridge="${p.organizationId}">
+            Kies in SIGNAL Bridge
+          </button>
+          <a class="secondary" style="padding:7px 13px; font-size:12px;" target="_blank" rel="noopener noreferrer" href="${PARTNER_URLS[p.organizationId] || "#"}">
+            Officiële website ↗
+          </a>
         </div>
       </div>
     </div>
-  `;
+  `
+    )
+    .join("");
 
-  root.querySelectorAll("[data-consent-toggle]").forEach((cb) => {
-    cb.addEventListener("change", (e) => {
-      const k = cb.dataset.consentToggle;
-      state.consentMatrix[k] = e.target.checked;
-      renderConsentScreen();
+  routesEl.querySelectorAll("[data-help-bridge]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      state.bridgeRecipientId = btn.dataset.helpBridge;
+      gotoPage("bridge");
     });
   });
-
-  const invBtn = root.querySelector("#consent-toggle-invisible");
-  if (invBtn) {
-    invBtn.addEventListener("click", () => {
-      toggleInvisibleMode();
-      renderConsentScreen();
-    });
-  }
-
-  const exitBtn = root.querySelector("#consent-trigger-safe-exit");
-  if (exitBtn) {
-    exitBtn.addEventListener("click", () => triggerSafeExitModal());
-  }
 }
 
 async function computeSha256Hex(text) {
-  const encoder = new TextEncoder();
-  const data = encoder.encode(text);
+  const data = new TextEncoder().encode(text);
   if (window.crypto && window.crypto.subtle) {
-    const hashBuffer = await window.crypto.subtle.digest("SHA-256", data);
-    return Array.from(new Uint8Array(hashBuffer))
+    const buf = await window.crypto.subtle.digest("SHA-256", data);
+    return Array.from(new Uint8Array(buf))
       .map((b) => b.toString(16).padStart(2, "0"))
       .join("");
   }
   return "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855";
 }
 
-function renderVaultScreen() {
+// 3. VAULT (TIMELINE, MEMORY, SHA-256, ADDENDUM, CONTINUITY)
+function renderVault() {
   const root = document.getElementById("vault-dynamic-root");
   if (!root) return;
 
   const dossier = getActiveDossier();
-
   const typeLabels = {
-    own_memory: "Eigen herinnering (Memory)",
-    document_evidence: "Bewijsstuk / Document (Evidence Vault)",
-    third_party_note: "Verklaring of waarneming van derde",
-    addendum_correction: "Latere aanvulling (Origineel behouden)",
-    official_step: "Gezette officiële stap"
+    own_memory: "Eigen herinnering",
+    document_evidence: "Bewijsstuk (SHA-256)",
+    third_party_note: "Waarneming derde",
+    addendum_correction: "Latere aanvulling",
+    official_step: "Officiële stap"
   };
-
   const certaintyLabels = {
-    exact: "Exacte datum & detail zeker",
-    approximate_date: "Datum bij benadering / deels onzeker",
-    uncertain_detail: "Herinnering met onzeker detail"
+    exact: "Exacte datum & detail",
+    approximate_date: "Datum bij benadering",
+    uncertain_detail: "Onzeker detail"
   };
 
   root.innerHTML = `
-    <div style="display:flex; flex-wrap:wrap; gap:0.6rem; align-items:center; margin-bottom:1.25rem;">
-      <strong style="color:var(--deep-trust);">Kies een fictief voorbeelddossier:</strong>
+    <div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:16px;">
       ${state.dossiers
         .map(
           (d) => `
-        <button type="button" class="btn ${d.dossierId === dossier.dossierId ? "btn-primary" : ""}" data-select-dossier="${d.dossierId}">
+        <button type="button" class="subtab ${d.dossierId === dossier.dossierId ? "active" : ""}" data-select-dossier="${d.dossierId}">
           ${state.invisibleMode ? d.neutralPersonaName : d.personaName}
         </button>
       `
@@ -617,39 +546,34 @@ function renderVaultScreen() {
         .join("")}
     </div>
 
-    <div class="grid-2">
-      <div>
-        <div class="panel-soft" style="margin-bottom:1.25rem;">
-          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem;">
-            <h3 style="margin:0;">${state.invisibleMode ? dossier.neutralPersonaName : dossier.personaName}</h3>
-            <span class="badge badge-trust">${dossier.roleType === "witness" ? "SIGNAL Witness Dossier" : "Persoonlijke Kluis (Niveau 2)"}</span>
-          </div>
-          <p style="margin:0.5rem 0 0 0; font-size:0.92rem;">${dossier.summary}</p>
+    <div class="vault-grid">
+      <div class="panel">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+          <h3 style="margin:0; font-family:'Manrope',sans-serif;">${state.invisibleMode ? dossier.neutralPersonaName : dossier.personaName}</h3>
+          <span class="pill">${dossier.roleType === "witness" ? "SIGNAL Witness" : "Privékluis (Niveau 2)"}</span>
         </div>
+        <p style="font-size:12.5px; color:#6b8081; margin:8px 0 0;">${dossier.summary}</p>
 
-        <h3 style="color:var(--deep-trust); margin-bottom:0.5rem;">Chronologische SIGNAL Timeline (${dossier.timelineEntries.length} items)</h3>
-        <div class="timeline-list">
+        <div class="timeline">
           ${dossier.timelineEntries
             .map(
-              (entry) => `
-            <div class="timeline-item ${entry.entryType === "addendum_correction" ? "is-addendum" : ""}">
-              <div class="timeline-meta">
-                <span class="badge badge-trust">${typeLabels[entry.entryType] || entry.entryType}</span>
-                <span class="badge ${entry.certainty === "exact" ? "" : "badge-caution"}">${certaintyLabels[entry.certainty] || entry.certainty}</span>
-                <span><strong>Voorval:</strong> ${entry.incidentDateOrPeriod}</span>
-                <span><strong>Vastgelegd:</strong> ${entry.createdAt.slice(0, 16).replace("T", " ")}</span>
+              (e) => `
+            <div class="event ${e.entryType === "addendum_correction" ? "is-addendum" : ""}">
+              <div style="display:flex; gap:6px; flex-wrap:wrap; align-items:center; margin-bottom:4px;">
+                <span class="pill">${typeLabels[e.entryType] || e.entryType}</span>
+                <span class="pill ${e.certainty === "exact" ? "" : "pill-caution"}">${certaintyLabels[e.certainty] || e.certainty}</span>
+                <span style="font-size:11px; color:#7c8e90;">${e.incidentDateOrPeriod}</span>
               </div>
-              <h4 style="margin:0 0 0.35rem 0; color:var(--deep-trust);">${entry.title}</h4>
-              <p style="margin:0 0 0.5rem 0; font-size:0.92rem; color:var(--ink-primary);">${entry.rawUserNarrative}</p>
+              <strong>${e.title}</strong>
+              <p>${e.rawUserNarrative}</p>
               ${
-                entry.attachments && entry.attachments.length > 0
-                  ? entry.attachments
+                e.attachments
+                  ? e.attachments
                       .map(
                         (att) => `
                   <div class="hash-box">
-                    <strong>Bijlage:</strong> ${att.fileName} (${att.mimeType})<br/>
-                    <strong>SHA-256 Integriteitshash:</strong> ${att.sha256Hash}<br/>
-                    <strong>Gekwalificeerd tijdstempel:</strong> ${att.timestampedAt}
+                    <strong>Bijlage:</strong> ${att.fileName}<br />
+                    <strong>SHA-256:</strong> ${att.sha256Hash}
                   </div>
                 `
                       )
@@ -657,15 +581,9 @@ function renderVaultScreen() {
                   : ""
               }
               ${
-                entry.entryType !== "addendum_correction"
-                  ? `
-                <div style="margin-top:0.65rem;">
-                  <button type="button" class="btn" style="font-size:0.8rem; padding:0.3rem 0.65rem;" data-add-addendum="${entry.entryId}">
-                    + Voeg latere aanvulling toe (zonder origineel te overschrijven)
-                  </button>
-                </div>
-              `
-                  : `<div style="font-size:0.78rem; color:var(--human-care); margin-top:0.35rem;">✓ Oorspronkelijke notitie (${entry.parentEntryId}) is ongewijzigd bewaard gebleven (ADR-003).</div>`
+                e.entryType !== "addendum_correction"
+                  ? `<button type="button" class="secondary" style="padding:6px 11px; font-size:11.5px; margin-top:6px;" data-add-addendum="${e.entryId}">+ Voeg latere aanvulling toe (origineel blijft intact)</button>`
+                  : `<div style="font-size:11px; color:var(--teal); font-weight:700; margin-top:4px;">✓ Oorspronkelijke notitie (${e.parentEntryId}) is ongewijzigd bewaard (ADR-003).</div>`
               }
             </div>
           `
@@ -675,86 +593,72 @@ function renderVaultScreen() {
       </div>
 
       <div>
-        <div class="panel" style="margin-bottom:1.25rem;">
-          <h3>Nieuwe gebeurtenis of herinnering toevoegen aan deze fictieve kluis</h3>
-          <p style="font-size:0.88rem;">Ervaar hoe SIGNAL feiten, onzekere herinneringen en derdenverklaringen zuiver uit elkaar houdt:</p>
-          <div class="form-group">
-            <label class="form-label" for="new-entry-title">Korte titel van het voorval</label>
-            <input class="form-input" id="new-entry-title" type="text" placeholder="Bijv. Gesprek bij de koffiemachine na teamvergadering" />
-          </div>
-          <div class="grid-2" style="gap:0.75rem;">
-            <div class="form-group">
-              <label class="form-label" for="new-entry-date">Datum of periode van het voorval</label>
-              <input class="form-input" id="new-entry-date" type="text" placeholder="Bijv. 12 november 2026 rond 16:30" />
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="new-entry-type">Type registratie</label>
-              <select class="form-select" id="new-entry-type">
-                <option value="own_memory">Eigen herinnering / eigen waarneming</option>
-                <option value="document_evidence">Bestaand document / screenshot (met SHA-256 hash)</option>
-                <option value="third_party_note">Verklaring van een derde / collega</option>
-                <option value="official_step">Reeds gezette stap (bijv. gesprek met huisarts/HR)</option>
-              </select>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="new-entry-certainty">Hoe zeker ben je van de datum en details? (SIGNAL Memory)</label>
-            <select class="form-select" id="new-entry-certainty">
-              <option value="exact">Exacte datum en details zijn zeker</option>
-              <option value="approximate_date">Datum bij benadering (bijv. 'begin oktober')</option>
-              <option value="uncertain_detail">Ik twijfel over een specifiek detail (eerlijk aangeven versterkt geloofwaardigheid)</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="new-entry-narrative">Jouw eigen beschrijving (wordt nooit door AI herschreven)</label>
-            <textarea class="form-textarea" id="new-entry-narrative" placeholder="Beschrijf op je eigen tempo wat je zelf hebt gezien, gehoord of ontvangen..."></textarea>
-          </div>
-          <button type="button" class="btn btn-primary" id="btn-save-timeline-entry">Vastleggen met SHA-256 integriteitshash</button>
+        <div class="panel" style="margin-top:20px;">
+          <div class="eyebrow">NIEUWE REGISTRATIE (DEMO)</div>
+          <h3 style="margin:6px 0 8px; font-family:'Manrope',sans-serif;">Tijdlijnnotitie toevoegen</h3>
+          <label class="field-label" for="v-title">Titel van het voorval</label>
+          <input class="field" id="v-title" type="text" placeholder="Bijv. Gesprek na teamvergadering" />
+
+          <label class="field-label" for="v-date">Datum of periode</label>
+          <input class="field" id="v-date" type="text" placeholder="Bijv. 14 november 2026 rond 16:30" />
+
+          <label class="field-label" for="v-type">Type registratie</label>
+          <select class="field" id="v-type">
+            <option value="own_memory">Eigen herinnering / waarneming</option>
+            <option value="document_evidence">Document / screenshot (SHA-256 hash)</option>
+            <option value="third_party_note">Verklaring van derde</option>
+            <option value="official_step">Reeds gezette stap</option>
+          </select>
+
+          <label class="field-label" for="v-certainty">Zekerheid (SIGNAL Memory)</label>
+          <select class="field" id="v-certainty">
+            <option value="exact">Exacte datum en details zeker</option>
+            <option value="approximate_date">Datum bij benadering</option>
+            <option value="uncertain_detail">Herinnering met onzeker detail</option>
+          </select>
+
+          <label class="field-label" for="v-text">Jouw eigen beschrijving (nooit herschreven door AI)</label>
+          <textarea class="field" id="v-text" placeholder="Schrijf in je eigen woorden wat je hebt meegemaakt of gezien..."></textarea>
+
+          <button type="button" class="primary" style="margin-top:12px; width:100%;" id="btn-add-vault-entry">
+            Vastleggen met SHA-256 hash
+          </button>
         </div>
 
-        <div class="panel" style="margin-bottom:1.25rem;">
-          <div style="display:flex; justify-content:space-between; align-items:center; gap:0.5rem;">
-            <h3 style="margin:0;">Begrensde AI Dossier-assistent (EU AI Act-conform)</h3>
-            <span class="badge badge-trust">ADR-003</span>
-          </div>
-          <p style="font-size:0.88rem; margin-top:0.4rem;">
-            AI mag binnen SIGNAL <strong>nooit</strong> oordelen wie gelijk heeft of hoe geloofwaardig een verhaal klinkt. AI kan enkel op jouw verzoek een chronologische samenvatting tonen terwijl jouw originele woorden 100% bewaard blijven.
+        <div class="panel">
+          <div class="eyebrow">ADR-003 · BEGRENSDE AI &amp; CONTINUITY</div>
+          <h3 style="margin:6px 0 8px; font-family:'Manrope',sans-serif;">Hulpmiddelen zonder oordeel</h3>
+          <p style="font-size:12px; color:#6b8081; margin:0 0 12px;">
+            AI geeft nooit een geloofwaardigheidsscore. Genereer een chronologisch uittreksel of exporteer je kluis.
           </p>
-          <button type="button" class="btn" id="btn-toggle-ai-preview">
-            ${state.aiStructuredPreviewOpen ? "Verberg chronologische structuurweergave" : "Genereer chronologisch uittreksel (zonder origineel te wijzigen)"}
-          </button>
+          <div style="display:flex; gap:8px; flex-wrap:wrap;">
+            <button type="button" class="secondary" style="font-size:12px; padding:9px 13px;" id="btn-vault-ai">
+              ${state.aiStructuredPreviewOpen ? "Verberg chronologisch uittreksel" : "Chronologisch uittreksel (AI)"}
+            </button>
+            <button type="button" class="secondary" style="font-size:12px; padding:9px 13px;" id="btn-vault-export">
+              Continuity Export-manifest
+            </button>
+            <button type="button" class="primary" style="font-size:12px; padding:9px 14px;" data-goto="bridge">
+              Doorsturen via SIGNAL Bridge →
+            </button>
+          </div>
           ${
             state.aiStructuredPreviewOpen
               ? `
-            <div class="panel-soft" style="margin-top:0.85rem; font-size:0.86rem;">
-              <strong>Chronologisch overzicht (alleen-lezen hulpmiddel):</strong>
-              <ul style="margin:0.4rem 0; padding-left:1.2rem;">
+            <div class="panel-soft" style="margin-top:12px; font-size:12px;">
+              <strong>Chronologisch overzicht (alleen-lezen):</strong>
+              <ul style="margin:6px 0 0; padding-left:18px;">
                 ${dossier.timelineEntries
-                  .map(
-                    (e) =>
-                      `<li><strong>[${e.incidentDateOrPeriod}]</strong> (${typeLabels[e.entryType]}): ${e.title} — <em>Oorspronkelijke getuigenis intact (${e.rawUserNarrative.length} tekens)</em></li>`
-                  )
+                  .map((e) => `<li><strong>[${e.incidentDateOrPeriod}]</strong> ${e.title} (origineel intact)</li>`)
                   .join("")}
               </ul>
-              <div style="color:var(--deep-trust); font-weight:600; margin-top:0.4rem;">
-                ✓ Geen schuldscore · Geen geloofwaardigheidsanalyse · Originele bewoordingen ongewijzigd bewaard.
-              </div>
             </div>
           `
               : ""
           }
-        </div>
-
-        <div class="panel">
-          <h3>SIGNAL Continuity — Draagbare Kluis-export</h3>
-          <p style="font-size:0.88rem;">Wat als je je dossier zelf wilt bewaren voor een advocaat of als SIGNAL ooit zou stoppen? Met één klik genereer je een controleerbaar exportmanifest inclusief SHA-256 hashes:</p>
-          <div style="display:flex; gap:0.6rem; flex-wrap:wrap;">
-            <button type="button" class="btn" id="btn-generate-export">Genereer SIGNAL Continuity Export-manifest</button>
-            <button type="button" class="btn btn-primary" data-goto-bridge-from-vault="true">Selecteer items voor SIGNAL Bridge-overdracht</button>
-          </div>
           ${
             state.continuityExportJson
-              ? `<pre class="hash-box" style="max-height:180px; overflow:auto; margin-top:0.75rem;">${state.continuityExportJson}</pre>`
+              ? `<pre class="hash-box" style="max-height:150px; overflow:auto; margin-top:10px;">${state.continuityExportJson}</pre>`
               : ""
           }
         </div>
@@ -765,57 +669,47 @@ function renderVaultScreen() {
   root.querySelectorAll("[data-select-dossier]").forEach((btn) => {
     btn.addEventListener("click", () => {
       state.activeDossierId = btn.dataset.selectDossier;
-      const d = getActiveDossier();
-      state.bridgeSelectedEntries = d.timelineEntries.map((e) => e.entryId);
+      state.bridgeSelectedEntries = getActiveDossier().timelineEntries.map((e) => e.entryId);
       state.continuityExportJson = null;
-      renderVaultScreen();
-      renderBridgeScreen();
+      renderVault();
     });
   });
 
   root.querySelectorAll("[data-add-addendum]").forEach((btn) => {
     btn.addEventListener("click", () => {
-      const parentId = btn.dataset.addAddendum;
       const text = window.prompt(
-        "Voeg een latere aanvulling of correctie toe. De oorspronkelijke notitie blijft ongewijzigd zichtbaar:",
-        "Aanvulling: ik heb vandaag het bijbehorende agenda-item en de naam van een aanwezige collega teruggevonden."
+        "Voeg een latere aanvulling toe (de oorspronkelijke notitie blijft ongewijzigd):",
+        "Aanvulling: ik heb vandaag het bijbehorende agenda-item teruggevonden."
       );
       if (text && text.trim()) {
         dossier.timelineEntries = createTimelineAddendum(
           dossier.timelineEntries,
-          parentId,
+          btn.dataset.addAddendum,
           text,
           new Date().toISOString()
         );
-        renderVaultScreen();
-        renderBridgeScreen();
+        showToast("Aanvulling toegevoegd zonder origineel te wijzigen.");
+        renderVault();
       }
     });
   });
 
-  const saveBtn = root.querySelector("#btn-save-timeline-entry");
-  if (saveBtn) {
-    saveBtn.addEventListener("click", async () => {
-      const titleEl = root.querySelector("#new-entry-title");
-      const dateEl = root.querySelector("#new-entry-date");
-      const typeEl = root.querySelector("#new-entry-type");
-      const certEl = root.querySelector("#new-entry-certainty");
-      const narEl = root.querySelector("#new-entry-narrative");
-
-      const title = titleEl.value.trim() || "Nieuwe persoonlijke tijdlijnnotitie";
-      const dateStr = dateEl.value.trim() || "14 november 2026";
+  const addBtn = root.querySelector("#btn-add-vault-entry");
+  if (addBtn) {
+    addBtn.addEventListener("click", async () => {
+      const title = root.querySelector("#v-title").value.trim() || "Persoonlijke tijdlijnnotitie";
+      const dateStr = root.querySelector("#v-date").value.trim() || "15 november 2026";
       const rawText =
-        narEl.value.trim() ||
-        "Ik heb dit voorval vandaag voor mezelf vastgelegd in mijn persoonlijke kluis.";
-
+        root.querySelector("#v-text").value.trim() ||
+        "Fictieve voorvalbeschrijving toegevoegd in de demo-kluis.";
       const hashHex = await computeSha256Hex(`${title}|${dateStr}|${rawText}`);
       const nowIso = new Date().toISOString();
-      const newEntry = {
+      const entry = {
         entryId: `tl-${Date.now().toString().slice(-4)}`,
         createdAt: nowIso,
         incidentDateOrPeriod: dateStr,
-        entryType: typeEl.value,
-        certainty: certEl.value,
+        entryType: root.querySelector("#v-type").value,
+        certainty: root.querySelector("#v-certainty").value,
         title,
         rawUserNarrative: rawText,
         categories: [...dossier.categories],
@@ -829,23 +723,22 @@ function renderVaultScreen() {
           }
         ]
       };
-
-      dossier.timelineEntries.push(newEntry);
-      state.bridgeSelectedEntries.push(newEntry.entryId);
-      renderVaultScreen();
-      renderBridgeScreen();
+      dossier.timelineEntries.push(entry);
+      state.bridgeSelectedEntries.push(entry.entryId);
+      showToast("Notitie vastgelegd met SHA-256 integriteitshash.");
+      renderVault();
     });
   }
 
-  const aiBtn = root.querySelector("#btn-toggle-ai-preview");
+  const aiBtn = root.querySelector("#btn-vault-ai");
   if (aiBtn) {
     aiBtn.addEventListener("click", () => {
       state.aiStructuredPreviewOpen = !state.aiStructuredPreviewOpen;
-      renderVaultScreen();
+      renderVault();
     });
   }
 
-  const expBtn = root.querySelector("#btn-generate-export");
+  const expBtn = root.querySelector("#btn-vault-export");
   if (expBtn) {
     expBtn.addEventListener("click", () => {
       state.continuityExportJson = JSON.stringify(
@@ -853,137 +746,114 @@ function renderVaultScreen() {
           protocol: "SIGNAL_CONTINUITY_EXPORT_V4",
           exportedAt: new Date().toISOString(),
           dossierId: dossier.dossierId,
-          entryCount: dossier.timelineEntries.length,
           entries: dossier.timelineEntries
         },
         null,
         2
       );
-      renderVaultScreen();
+      showToast("SIGNAL Continuity exportmanifest gegenereerd.");
+      renderVault();
     });
   }
 
-  const gotoBridgeBtn = root.querySelector("[data-goto-bridge-from-vault]");
-  if (gotoBridgeBtn) {
-    gotoBridgeBtn.addEventListener("click", () => {
-      renderBridgeScreen();
-      switchScreen("screen-bridge");
-    });
-  }
+  root.querySelectorAll("[data-goto]").forEach((b) =>
+    b.addEventListener("click", () => gotoPage(b.dataset.goto))
+  );
 }
 
-function renderBridgeScreen() {
+// 4. SIGNAL BRIDGE
+function renderBridge() {
   const root = document.getElementById("bridge-dynamic-root");
   if (!root) return;
 
   const dossier = getActiveDossier();
-  const selectedPartner =
+  const partner =
     PARTNER_PASSPORTS.find((p) => p.organizationId === state.bridgeRecipientId) || PARTNER_PASSPORTS[0];
 
   root.innerHTML = `
     <div class="grid-2">
-      <div>
-        <div class="panel" style="margin-bottom:1.25rem;">
-          <h3>Stap 1 — Selecteer welke tijdlijnitems je wilt overdragen</h3>
-          <p style="font-size:0.88rem;">
-            Actief dossier: <strong>${state.invisibleMode ? dossier.neutralPersonaName : dossier.personaName}</strong>.
-            Items die je níét aanvinkt, blijven uitsluitend in je eigen kluis.
-          </p>
-          ${dossier.timelineEntries
-            .map((e) => {
-              const checked = state.bridgeSelectedEntries.includes(e.entryId);
-              return `
-                <label class="choice-card ${checked ? "selected" : ""}" style="display:flex; gap:0.75rem; align-items:flex-start;">
-                  <input type="checkbox" data-bridge-entry="${e.entryId}" ${checked ? "checked" : ""} style="margin-top:0.25rem;" />
-                  <div>
-                    <div class="choice-card-title">${e.title} <span class="badge">${e.incidentDateOrPeriod}</span></div>
-                    <p class="choice-card-desc">${e.rawUserNarrative}</p>
-                  </div>
-                </label>
-              `;
-            })
-            .join("")}
+      <div class="panel">
+        <div class="eyebrow">STAP 1 &amp; 2 · SELECTIE</div>
+        <h3 style="margin:6px 0 10px; font-family:'Manrope',sans-serif;">Welke tijdlijnitems wil je overdragen?</h3>
+        <p style="font-size:12.5px; color:#6b8081; margin:0 0 12px;">
+          Actief dossier: <strong>${state.invisibleMode ? dossier.neutralPersonaName : dossier.personaName}</strong>.
+          Niet-aangevinkte items blijven privé in je kluis.
+        </p>
+
+        ${dossier.timelineEntries
+          .map((e) => {
+            const checked = state.bridgeSelectedEntries.includes(e.entryId);
+            return `
+              <label class="option ${checked ? "selected" : ""}" style="display:flex; gap:10px; align-items:flex-start; margin-bottom:10px; min-height:auto; cursor:pointer;">
+                <input type="checkbox" data-bridge-cb="${e.entryId}" ${checked ? "checked" : ""} style="margin-top:3px;" />
+                <div>
+                  <div style="font-weight:700;">${e.title} <span class="pill">${e.incidentDateOrPeriod}</span></div>
+                  <small>${e.rawUserNarrative}</small>
+                </div>
+              </label>
+            `;
+          })
+          .join("")}
+
+        <label class="field-label" for="bridge-partner">Ontvangende Belgische partner (Trust Passport)</label>
+        <select class="field" id="bridge-partner">
+          ${PARTNER_PASSPORTS.map(
+            (p) => `<option value="${p.organizationId}" ${p.organizationId === partner.organizationId ? "selected" : ""}>${p.name}</option>`
+          ).join("")}
+        </select>
+
+        <div class="panel-soft" style="margin-top:12px; font-size:12px;">
+          <strong>Trust Passport: ${partner.shortName}</strong> (${partner.badgeText})<br />
+          <span>Geheimhouding: ${partner.confidentialityRegime.secrecyArticle} · Toezicht: ${partner.independentOversightBody}</span>
         </div>
 
-        <div class="panel">
-          <h3>Stap 2 — Kies de ontvangende Belgische partnerorganisatie</h3>
-          <div class="form-group">
-            <label class="form-label" for="bridge-partner-select">Bevoegde partnerorganisatie (met geverifieerd Trust Passport)</label>
-            <select class="form-select" id="bridge-partner-select">
-              ${PARTNER_PASSPORTS.map(
-                (p) =>
-                  `<option value="${p.organizationId}" ${p.organizationId === selectedPartner.organizationId ? "selected" : ""}>${p.name}</option>`
-              ).join("")}
-            </select>
-          </div>
-
-          <div class="panel-soft" style="margin-bottom:1rem;">
-            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap;">
-              <strong style="color:var(--deep-trust);">SIGNAL Trust Passport: ${selectedPartner.shortName}</strong>
-              <span class="badge badge-trust">${selectedPartner.badgeText}</span>
-            </div>
-            <p style="font-size:0.86rem; margin:0.4rem 0;"><strong>Verwerkingsverantwoordelijke:</strong> ${selectedPartner.confidentialityRegime.dataControllerName}</p>
-            <p style="font-size:0.86rem; margin:0.2rem 0;"><strong>Wettelijke geheimhouding:</strong> ${selectedPartner.confidentialityRegime.secrecyArticle}</p>
-            <p style="font-size:0.86rem; margin:0.2rem 0;"><strong>Onafhankelijk toezicht:</strong> ${selectedPartner.independentOversightBody}</p>
-            <p style="font-size:0.84rem; margin:0.4rem 0 0 0; color:var(--ink-secondary);">${selectedPartner.confidentialityRegime.retentionPolicySummary}</p>
-          </div>
-
-          <div class="form-group">
-            <label class="form-label" for="bridge-disclosure-select">Niveau van bekendmaking bij deze overdracht</label>
-            <select class="form-select" id="bridge-disclosure-select">
-              <option value="anonymous_consultation" ${state.bridgeDisclosureLevel === "anonymous_consultation" ? "selected" : ""}>Oriënterend advies (zonder naam/contactgegevens)</option>
-              <option value="pseudonymous_bridge" ${state.bridgeDisclosureLevel === "pseudonymous_bridge" ? "selected" : ""}>Pseudonieme overdracht (contact enkel via beveiligde SIGNAL inbox / Bridge Token)</option>
-              <option value="named_handover" ${state.bridgeDisclosureLevel === "named_handover" ? "selected" : ""}>Volledige overdracht op naam voor persoonlijke intake</option>
-            </select>
-          </div>
-        </div>
+        <label class="field-label" for="bridge-level">Niveau van bekendmaking</label>
+        <select class="field" id="bridge-level">
+          <option value="anonymous_consultation" ${state.bridgeDisclosureLevel === "anonymous_consultation" ? "selected" : ""}>Oriënterend advies (zonder naam)</option>
+          <option value="pseudonymous_bridge" ${state.bridgeDisclosureLevel === "pseudonymous_bridge" ? "selected" : ""}>Pseudonieme overdracht (enkel via SIGNAL Bridge Token)</option>
+          <option value="named_handover" ${state.bridgeDisclosureLevel === "named_handover" ? "selected" : ""}>Volledige overdracht op naam</option>
+        </select>
       </div>
 
       <div>
-        <div class="panel" style="margin-bottom:1.25rem;">
-          <h3>Stap 3 — Bewuste toestemming & verwachtingsmanagement</h3>
-          <p style="font-size:0.88rem;">Voordat SIGNAL het geselecteerde pakket versleutelt voor <strong>${selectedPartner.shortName}</strong>, bevestig je onderstaande twee punten:</p>
-
-          <label style="display:flex; gap:0.65rem; align-items:flex-start; margin-bottom:0.85rem; font-size:0.88rem; cursor:pointer;">
-            <input type="checkbox" id="bridge-check-not-police" ${state.bridgeConsentNotPolice ? "checked" : ""} style="margin-top:0.25rem;" />
-            <span>Ik begrijp dat deze overdracht naar <strong>${selectedPartner.shortName}</strong> géén automatisch proces-verbaal bij de politie is, maar een vertrouwelijke overdracht binnen de wettelijke opdracht van deze organisatie.</span>
+        <div class="panel">
+          <div class="eyebrow">STAP 3 · BEWUSTE TOESTEMMING</div>
+          <h3 style="margin:6px 0 10px; font-family:'Manrope',sans-serif;">Wat deze overdracht wél en níét betekent</h3>
+          <label style="display:flex; gap:9px; align-items:flex-start; font-size:12.5px; margin-bottom:12px; cursor:pointer;">
+            <input type="checkbox" id="br-c1" ${state.bridgeConsentNotPolice ? "checked" : ""} style="margin-top:3px;" />
+            <span>Ik begrijp dat overdracht naar <strong>${partner.shortName}</strong> géén automatisch proces-verbaal bij de politie is.</span>
           </label>
-
-          <label style="display:flex; gap:0.65rem; align-items:flex-start; margin-bottom:1rem; font-size:0.88rem; cursor:pointer;">
-            <input type="checkbox" id="bridge-check-art17" ${state.bridgeConsentRevocability ? "checked" : ""} style="margin-top:0.25rem;" />
-            <span>Ik begrijp dat mijn eigen Private Vault altijd door mij wisbaar blijft, en dat het overgedragen pakket na verzending valt onder het beroepsgeheim en de wettelijke bewaarplicht van de ontvangende organisatie (art. 17 lid 3 AVG).</span>
+          <label style="display:flex; gap:9px; align-items:flex-start; font-size:12.5px; margin-bottom:16px; cursor:pointer;">
+            <input type="checkbox" id="br-c2" ${state.bridgeConsentRevocability ? "checked" : ""} style="margin-top:3px;" />
+            <span>Ik begrijp dat mijn eigen kluis wisbaar blijft, maar het overgedragen pakket na verzending valt onder het beroepsgeheim en bewaarbeleid van de ontvanger (art. 17 lid 3 AVG).</span>
           </label>
-
-          <button type="button" class="btn btn-primary" id="btn-execute-bridge">
-            Versleutel & draag ${state.bridgeSelectedEntries.length} geselecteerd(e) item(s) over via SIGNAL Bridge
+          <button type="button" class="primary" style="width:100%;" id="btn-run-bridge">
+            Versleutel &amp; maak Bridge Token (${state.bridgeSelectedEntries.length} item(s))
           </button>
         </div>
 
         ${
           state.lastCreatedBridgePackage
             ? `
-          <div class="panel-soft" style="border-color:var(--deep-trust);">
-            <span class="badge badge-trust" style="margin-bottom:0.4rem;">Ontvangstbevestiging & Fysieke Overdrachtscode</span>
-            <h3>SIGNAL Bridge Pakket Gereed: ${state.lastCreatedBridgePackage.handoverId}</h3>
-            <p style="font-size:0.9rem;">
-              Jouw geselecteerde dossieronderdelen zijn versleuteld klaargezet voor <strong>${state.lastCreatedBridgePackage.recipientOrganization.name}</strong>.
-              Je hoeft je verhaal tijdens het gesprek niet vanaf nul te herhalen.
+          <div class="panel" style="border-color:var(--teal); background:#f5fbf8;">
+            <span class="pill">Ontvangstbevestiging · ${state.lastCreatedBridgePackage.handoverId}</span>
+            <h3 style="margin:10px 0 6px; font-family:'Manrope',sans-serif;">SIGNAL Bridge Pakket Klaargezet</h3>
+            <p style="font-size:12.5px; color:#456362; margin:0 0 10px;">
+              Bestemd voor <strong>${state.lastCreatedBridgePackage.recipientOrganization.name}</strong>. Je hoeft je verhaal niet opnieuw te vertellen.
             </p>
-            <div class="hash-box" style="background:#ffffff; font-size:0.85rem;">
-              <strong>Fysieke / Telefonische Afspraakcode (Bridge Token):</strong> ${state.lastCreatedBridgePackage.bridgePhysicalToken}<br/>
-              <strong>Gedeelde items:</strong> ${state.lastCreatedBridgePackage.includedEntryCount} (${state.lastCreatedBridgePackage.includedEntryIds.join(", ")})<br/>
-              <strong>Privé gehouden items in jouw kluis:</strong> ${state.lastCreatedBridgePackage.excludedPrivateEntryCount}<br/>
-              <strong>Geheimhoudingsregime:</strong> ${state.lastCreatedBridgePackage.recipientOrganization.secrecyRegime}
+            <div class="hash-box" style="background:#fff;">
+              <strong>Afspraak- / Bridge Token:</strong> ${state.lastCreatedBridgePackage.bridgePhysicalToken}<br />
+              <strong>Gedeelde items:</strong> ${state.lastCreatedBridgePackage.includedEntryCount} (${state.lastCreatedBridgePackage.includedEntryIds.join(", ")})<br />
+              <strong>Privé gehouden in jouw kluis:</strong> ${state.lastCreatedBridgePackage.excludedPrivateEntryCount}
             </div>
-            <div style="margin-top:0.9rem; display:flex; gap:0.6rem; flex-wrap:wrap;">
-              <button type="button" class="btn btn-primary" data-goto-aftercare="true">Bekijk Mijn Vervolgstappen & SIGNAL Aftercare</button>
-              <button type="button" class="btn" data-goto-workspace="true">Inspecteer als Behandelaar in Professional Workspace</button>
+            <div style="margin-top:12px; display:flex; gap:8px; flex-wrap:wrap;">
+              <button type="button" class="primary" style="padding:9px 14px; font-size:12px;" data-goto="cases">Inspecteer in Professional Workspace →</button>
             </div>
           </div>
         `
             : `
-          <div class="panel-caution">
-            <strong>Waarom SIGNAL Bridge zo belangrijk is:</strong> Slachtoffers en melders haken vaak af omdat ze hun verhaal vier keer opnieuw moeten vertellen aan verschillende loketten. Met SIGNAL Bridge houd jij de regie over wát je deelt en met wíe.
+          <div class="small-note">
+            <strong>SIGNAL Aftercare:</strong> Na een overdracht blijf je altijd zelf in controle over je kluis en zie je rustig welke vervolgstap bij jouw situatie past.
           </div>
         `
         }
@@ -991,42 +861,41 @@ function renderBridgeScreen() {
     </div>
   `;
 
-  root.querySelectorAll("[data-bridge-entry]").forEach((cb) => {
+  root.querySelectorAll("[data-bridge-cb]").forEach((cb) => {
     cb.addEventListener("change", (e) => {
-      const id = cb.dataset.bridgeEntry;
+      const id = cb.dataset.bridgeCb;
       if (e.target.checked) {
         if (!state.bridgeSelectedEntries.includes(id)) state.bridgeSelectedEntries.push(id);
       } else {
         state.bridgeSelectedEntries = state.bridgeSelectedEntries.filter((x) => x !== id);
       }
-      renderBridgeScreen();
+      renderBridge();
     });
   });
 
-  const partnerSel = root.querySelector("#bridge-partner-select");
-  if (partnerSel) {
-    partnerSel.addEventListener("change", (e) => {
+  const pSel = root.querySelector("#bridge-partner");
+  if (pSel) {
+    pSel.addEventListener("change", (e) => {
       state.bridgeRecipientId = e.target.value;
-      renderBridgeScreen();
+      renderBridge();
     });
   }
 
-  const discSel = root.querySelector("#bridge-disclosure-select");
-  if (discSel) {
-    discSel.addEventListener("change", (e) => {
+  const lSel = root.querySelector("#bridge-level");
+  if (lSel) {
+    lSel.addEventListener("change", (e) => {
       state.bridgeDisclosureLevel = e.target.value;
     });
   }
 
-  const c1 = root.querySelector("#bridge-check-not-police");
+  const c1 = root.querySelector("#br-c1");
   if (c1) c1.addEventListener("change", (e) => (state.bridgeConsentNotPolice = e.target.checked));
-
-  const c2 = root.querySelector("#bridge-check-art17");
+  const c2 = root.querySelector("#br-c2");
   if (c2) c2.addEventListener("change", (e) => (state.bridgeConsentRevocability = e.target.checked));
 
-  const execBtn = root.querySelector("#btn-execute-bridge");
-  if (execBtn) {
-    execBtn.addEventListener("click", () => {
+  const runBtn = root.querySelector("#btn-run-bridge");
+  if (runBtn) {
+    runBtn.addEventListener("click", () => {
       try {
         const pkg = buildBridgeHandoverPackage({
           dossierId: dossier.dossierId,
@@ -1034,7 +903,6 @@ function renderBridgeScreen() {
           selectedEntryIds: state.bridgeSelectedEntries,
           recipientOrganizationId: state.bridgeRecipientId,
           disclosureLevel: state.bridgeDisclosureLevel,
-          userExpectationGoal: state.bridgeGoal,
           understandsNotAutomaticPoliceReport: state.bridgeConsentNotPolice,
           revocabilityScopeExplained: state.bridgeConsentRevocability
         });
@@ -1042,347 +910,102 @@ function renderBridgeScreen() {
         state.wsPartnerOrg = state.bridgeRecipientId;
         state.wsAuditLog.unshift({
           time: new Date().toISOString().slice(0, 19).replace("T", " "),
-          actor: "Melder via SIGNAL Bridge",
-          action: `Overdrachtspakket ${pkg.handoverId} (${pkg.includedEntryCount} items) geadresseerd aan ${pkg.recipientOrganization.name}`,
-          result: "ENCRYPTED & DELIVERED"
+          actor: "Melder via Bridge",
+          action: `Pakket ${pkg.handoverId} (${pkg.includedEntryCount} items) naar ${pkg.recipientOrganization.name}`,
+          result: "DELIVERED"
         });
-        renderBridgeScreen();
-        renderWorkspaceScreen();
+        showToast(`Bridge Token ${pkg.bridgePhysicalToken} aangemaakt.`);
+        renderBridge();
       } catch (err) {
         window.alert(err.message);
       }
     });
   }
 
-  const afterBtn = root.querySelector("[data-goto-aftercare]");
-  if (afterBtn) afterBtn.addEventListener("click", () => switchScreen("screen-aftercare"));
-
-  const wsBtn = root.querySelector("[data-goto-workspace]");
-  if (wsBtn) wsBtn.addEventListener("click", () => switchScreen("screen-workspace"));
+  root.querySelectorAll("[data-goto]").forEach((b) =>
+    b.addEventListener("click", () => gotoPage(b.dataset.goto))
+  );
 }
 
-function renderNetworkScreen() {
-  const root = document.getElementById("network-dynamic-root");
+// 5. CASES (PROFESSIONAL WORKSPACE & HANDSHAKE SIMULATOR)
+function renderCases() {
+  document.querySelectorAll("[data-cases-tab]").forEach((t) => {
+    t.classList.toggle("active", t.dataset.casesTab === state.casesTab);
+  });
+
+  const root = document.getElementById("cases-dynamic-root");
   if (!root) return;
 
-  root.innerHTML = `
-    <div class="grid-3" style="margin-bottom:1.5rem;">
-      <div class="panel-soft">
-        <h3>1. Digitaal (SIGNAL Web & Bridge)</h3>
-        <p style="font-size:0.88rem; margin:0;">Oriënteren zonder account (SIGNAL Zero), versleutelde tijdlijn en gecontroleerde digitale overdracht naar erkende Belgische partners.</p>
-      </div>
-      <div class="panel-soft">
-        <h3>2. Telefonisch (Warme Doorverwijzing)</h3>
-        <p style="font-size:0.88rem; margin:0;">Directe doorverwijzing naar gratis professionele hulplijnen zoals <strong>1712</strong>, <strong>0800 20 808</strong> (Vlaams Meldpunt) en <strong>0800 12 800</strong> (Unia), zonder dat SIGNAL zelf een callcenter simuleert.</p>
-      </div>
-      <div class="panel-soft">
-        <h3>3. Fysiek (Met Bridge Token)</h3>
-        <p style="font-size:0.88rem; margin:0;">Neem je afdrukbare overzicht of <strong>Bridge Token</strong> mee naar een fysiek gesprek bij een Zorgcentrum na Seksueel Geweld (ZSG), CAW of advocaat.</p>
-      </div>
-    </div>
+  if (state.casesTab === "workspace") {
+    const bridgedTarget = state.lastCreatedBridgePackage
+      ? state.lastCreatedBridgePackage.recipientOrganization.organizationId
+      : "org-vlaams-meldpunt";
 
-    <div class="grid-2">
-      ${PARTNER_PASSPORTS.map(
-        (p) => `
-        <div class="panel">
-          <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:0.5rem; margin-bottom:0.5rem;">
-            <h3 style="margin:0;">${p.name}</h3>
-            <span class="badge badge-trust">${p.badgeText}</span>
-          </div>
-          <p style="font-size:0.88rem;">${p.legalBasisSummary}</p>
-          <table class="data-table" style="font-size:0.82rem; margin-bottom:0.85rem;">
-            <tbody>
-              <tr>
-                <th>Bevoegdheid</th>
-                <td>${p.jurisdiction}</td>
-              </tr>
-              <tr>
-                <th>Geheimhouding</th>
-                <td>${p.confidentialityRegime.secrecyArticle}</td>
-              </tr>
-              <tr>
-                <th>Verwerkingsverantwoordelijke</th>
-                <td>${p.confidentialityRegime.dataControllerName}</td>
-              </tr>
-              <tr>
-                <th>Onafhankelijk toezicht</th>
-                <td>${p.independentOversightBody}</td>
-              </tr>
-              <tr>
-                <th>Bereikbaarheid</th>
-                <td><strong>${p.accessChannels.phoneNumber}</strong> · ${p.accessChannels.hours}</td>
-              </tr>
-              <tr>
-                <th>Laatste verificatie</th>
-                <td>${p.lastAuditedAt} (DPO & Bevoegdheid gecontroleerd)</td>
-              </tr>
-            </tbody>
-          </table>
-          <button type="button" class="btn btn-primary" data-partner-bridge="${p.organizationId}">
-            Kies deze partner in SIGNAL Bridge
-          </button>
-        </div>
-      `
-      ).join("")}
-    </div>
-  `;
-
-  root.querySelectorAll("[data-partner-bridge]").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      state.bridgeRecipientId = btn.dataset.partnerBridge;
-      renderBridgeScreen();
-      switchScreen("screen-bridge");
+    const authCheck = checkDossierAccessAuthorization({
+      actorRole: state.wsSelectedActor,
+      actorOrganizationId: state.wsPartnerOrg,
+      bridgedToOrganizationId: bridgedTarget
     });
-  });
-}
 
-function renderHandshakeScreen() {
-  const root = document.getElementById("handshake-dynamic-root");
-  if (!root) return;
+    root.innerHTML = `
+      <div class="stat">
+        <div class="card"><b>04</b><span>Fictieve dossiers</span></div>
+        <div class="card"><b>02</b><span>Menselijke review</span></div>
+        <div class="card"><b>00</b><span>Automatische conclusies</span></div>
+      </div>
 
-  const evalHs = evaluateHandshakeSafety({
-    mvpPhase: state.hsPhase,
-    legalBasisApproved: state.hsLegalApproved,
-    reviewerOneApproved: state.hsReviewer1,
-    reviewerTwoApproved: state.hsReviewer2,
-    isHearsayOrCopycat: state.hsHearsayFlag,
-    possibleNamesakeRisk: state.hsNamesakeFlag,
-    reporterOneIndividualConsent: state.hsReporter1Consent,
-    reporterTwoIndividualConsent: state.hsReporter2Consent
-  });
+      <div class="grid-2">
+        <div class="panel" style="margin-top:0;">
+          <div class="eyebrow">GOUDEN ARCHITECTUURREGEL</div>
+          <h3 style="margin:6px 0 8px; font-family:'Manrope',sans-serif;">Test wie inhoudelijk toegang krijgt</h3>
+          <p style="font-size:12.5px; color:#6b8081; margin:0 0 12px;">
+            Zelfs een platformbeheerder of een betalende werkgever mag nooit dossiers kunnen inzien. Test hieronder een rol:
+          </p>
 
-  root.innerHTML = `
-    <div class="panel-caution" style="margin-bottom:1.25rem;">
-      <strong>Educatieve Simulatie (ADR-002):</strong> In de eerste release (MVP Fase 1 & 2) is de matchingmodule technisch uitgeschakeld. Deze interactieve simulator laat juristen, toezichthouders en partners exact testen hoe <strong>SIGNAL Handshake</strong> en <strong>SIGNAL Fairness</strong> in Fase 3 werken — en waarom automatische match-meldingen of groepschats altijd geblokkeerd blijven.
-    </div>
-
-    <div class="grid-2">
-      <div class="panel">
-        <h3>Stel de voorwaarden en controles in (Test de Waarborgen)</h3>
-        <div class="form-group">
-          <label class="form-label" for="hs-phase-select">Projectfase & Wettelijke Status (Art. 9/10 AVG)</label>
-          <select class="form-select" id="hs-phase-select">
-            <option value="1" ${state.hsPhase === 1 ? "selected" : ""}>Fase 1 / Fase 2 MVP — Matching technisch uitgeschakeld (Standaard)</option>
-            <option value="3" ${state.hsPhase === 3 ? "selected" : ""}>Fase 3 — Wettelijk toegelaten partnerdomein na goedgekeurde DPIA</option>
+          <label class="field-label" for="ws-actor">Kies een rol</label>
+          <select class="field" id="ws-actor">
+            <option value="partner_caseworker" ${state.wsSelectedActor === "partner_caseworker" ? "selected" : ""}>Gemachtigde Behandelaar bij Partnerorganisatie</option>
+            <option value="vault_owner" ${state.wsSelectedActor === "vault_owner" ? "selected" : ""}>De Melder zelf (Eigenaar Private Vault)</option>
+            <option value="platform_sysadmin" ${state.wsSelectedActor === "platform_sysadmin" ? "selected" : ""}>Platform- / Databasebeheerder (SysAdmin)</option>
+            <option value="sponsor_or_b2b_client" ${state.wsSelectedActor === "sponsor_or_b2b_client" ? "selected" : ""}>Betalende Werkgever / Sponsor (ADR-004)</option>
           </select>
-        </div>
-
-        <div style="padding:0.75rem 0; border-top:1px solid var(--border-subtle);">
-          <strong style="color:var(--deep-trust); display:block; margin-bottom:0.5rem;">1. SIGNAL Fairness — Bescherming tegen valse matches & misbruik</strong>
-          <label style="display:flex; gap:0.6rem; align-items:center; margin-bottom:0.45rem; font-size:0.88rem; cursor:pointer;">
-            <input type="checkbox" id="hs-hearsay-cb" ${state.hsHearsayFlag ? "checked" : ""} />
-            <span>Simuleer: Eén van de meldingen is een gerucht ("van horen zeggen") of gekopieerd verhaal</span>
-          </label>
-          <label style="display:flex; gap:0.6rem; align-items:center; font-size:0.88rem; cursor:pointer;">
-            <input type="checkbox" id="hs-namesake-cb" ${state.hsNamesakeFlag ? "checked" : ""} />
-            <span>Simuleer: Risico op naamgenoot / onvoldoende unieke organisatiecontext</span>
-          </label>
-        </div>
-
-        <div style="padding:0.75rem 0; border-top:1px solid var(--border-subtle);">
-          <strong style="color:var(--deep-trust); display:block; margin-bottom:0.5rem;">2. Verplichte Menselijke Vierogencontrole (Reviewteam)</strong>
-          <label style="display:flex; gap:0.6rem; align-items:center; margin-bottom:0.45rem; font-size:0.88rem; cursor:pointer;">
-            <input type="checkbox" id="hs-rev1-cb" ${state.hsReviewer1 ? "checked" : ""} />
-            <span>Gemachtigde Beoordelaar 1 (Jurist / Behandelaar) bevestigt rechtmatigheid</span>
-          </label>
-          <label style="display:flex; gap:0.6rem; align-items:center; font-size:0.88rem; cursor:pointer;">
-            <input type="checkbox" id="hs-rev2-cb" ${state.hsReviewer2 ? "checked" : ""} />
-            <span>Gemachtigde Beoordelaar 2 (Onafhankelijke Vierogencontrole) bevestigt</span>
-          </label>
-        </div>
-
-        <div style="padding:0.75rem 0; border-top:1px solid var(--border-subtle);">
-          <strong style="color:var(--deep-trust); display:block; margin-bottom:0.5rem;">3. Afzonderlijke Begeleiding & Vrijwillige Coördinatie (SIGNAL Handshake)</strong>
-          <label style="display:flex; gap:0.6rem; align-items:center; margin-bottom:0.45rem; font-size:0.88rem; cursor:pointer;">
-            <input type="checkbox" id="hs-rep1-cb" ${state.hsReporter1Consent ? "checked" : ""} />
-            <span>Melder A stemt na individueel gesprek vrijwillig in met overdracht naar coördinerend advocaat</span>
-          </label>
-          <label style="display:flex; gap:0.6rem; align-items:center; font-size:0.88rem; cursor:pointer;">
-            <input type="checkbox" id="hs-rep2-cb" ${state.hsReporter2Consent ? "checked" : ""} />
-            <span>Melder B stemt na individueel gesprek vrijwillig in met overdracht naar coördinerend advocaat</span>
-          </label>
-        </div>
-      </div>
-
-      <div>
-        <div class="panel" style="border-color:var(--deep-trust); margin-bottom:1.25rem;">
-          <span class="badge ${evalHs.canProceedToHandshake ? "badge-trust" : "badge-caution"}" style="margin-bottom:0.5rem;">
-            Systeemstatus: ${evalHs.status}
-          </span>
-          <h3>Resultaat van de Veiligheids- & Rechtmatigheidstoets</h3>
-          <p style="font-size:0.94rem; color:var(--ink-primary);">${evalHs.reason}</p>
-
-          <table class="data-table" style="font-size:0.85rem; margin-top:1rem;">
-            <tbody>
-              <tr>
-                <th>Automatische "Er is een match!"-notificatie naar melders?</th>
-                <td><span class="badge badge-trust">ALTIJD UIT (${evalHs.automatedNotificationSentToReporters})</span></td>
-              </tr>
-              <tr>
-                <th>Publieke teller of beschuldigingsregister bijgewerkt?</th>
-                <td><span class="badge badge-trust">VERBODEN (${evalHs.publicAccusationCounterIncremented})</span></td>
-              </tr>
-              <tr>
-                <th>AI-geloofwaardigheidsscore gebruikt?</th>
-                <td><span class="badge badge-trust">VERBODEN (${evalHs.aiCredibilityScoreUsed})</span></td>
-              </tr>
-              <tr>
-                <th>Individuele begeleiding (SIGNAL Handshake) toegestaan?</th>
-                <td><strong>${evalHs.canProceedToHandshake ? "JA — Afzonderlijk door vertrouwenspersoon" : "NEE — Geblokkeerd door veiligheidspoort"}</strong></td>
-              </tr>
-              <tr>
-                <th>Gezamenlijke juridische opvolging (SIGNAL Collective)?</th>
-                <td><strong>${evalHs.canProceedToCollective ? "JA — Via gemachtigde advocaat (zonder groepschat)" : "NEE — Wacht op individueel akkoord van beide melders"}</strong></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="panel-soft">
-          <h3>Waarom verbiedt SIGNAL groepschats tussen melders?</h3>
-          <p style="font-size:0.88rem; margin:0;">
-            Wanneer twee slachtoffers elkaars getuigenis lezen voordat zij bij politie of justitie zijn gehoord, kan een verdedigingsadvocaat aanvoeren dat hun herinneringen elkaar hebben beïnvloed (<em>geheugenbesmetting</em>). Door getuigenissen strikt gescheiden te houden en coördinatie uitsluitend via een advocaat of bevoegde onderzoeksinstantie te laten verlopen, blijft de juridische bewijskracht van elk afzonderlijk verhaal maximaal beschermd.
-          </p>
-        </div>
-      </div>
-    </div>
-  `;
-
-  const phaseSel = root.querySelector("#hs-phase-select");
-  if (phaseSel) {
-    phaseSel.addEventListener("change", (e) => {
-      state.hsPhase = Number(e.target.value);
-      state.hsLegalApproved = state.hsPhase === 3;
-      renderHandshakeScreen();
-    });
-  }
-
-  const bindCheck = (sel, key) => {
-    const el = root.querySelector(sel);
-    if (el) {
-      el.addEventListener("change", (e) => {
-        state[key] = e.target.checked;
-        renderHandshakeScreen();
-      });
-    }
-  };
-
-  bindCheck("#hs-hearsay-cb", "hsHearsayFlag");
-  bindCheck("#hs-namesake-cb", "hsNamesakeFlag");
-  bindCheck("#hs-rev1-cb", "hsReviewer1");
-  bindCheck("#hs-rev2-cb", "hsReviewer2");
-  bindCheck("#hs-rep1-cb", "hsReporter1Consent");
-  bindCheck("#hs-rep2-cb", "hsReporter2Consent");
-}
-
-function renderWorkspaceScreen() {
-  const root = document.getElementById("workspace-dynamic-root");
-  if (!root) return;
-
-  const bridgedTarget = state.lastCreatedBridgePackage
-    ? state.lastCreatedBridgePackage.recipientOrganization.organizationId
-    : "org-vlaams-meldpunt";
-
-  const authCheck = checkDossierAccessAuthorization({
-    actorRole: state.wsSelectedActor,
-    actorOrganizationId: state.wsPartnerOrg,
-    bridgedToOrganizationId: bridgedTarget
-  });
-
-  root.innerHTML = `
-    <div class="grid-2">
-      <div>
-        <div class="panel" style="margin-bottom:1.25rem;">
-          <h3>Test de Gouden Architectuurregel (Wie kan een dossier lezen?)</h3>
-          <p style="font-size:0.88rem;">
-            De belangrijkste architectuurregel van SIGNAL luidt: <strong>een gewone platformbeheerder of externe financier mag nooit inhoudelijke toegang hebben tot alle meldingen.</strong> Kies hieronder een rol en test de toegangscontrole:
-          </p>
-
-          <div class="form-group">
-            <label class="form-label" for="ws-actor-select">Kies de rol die toegang probeert te krijgen</label>
-            <select class="form-select" id="ws-actor-select">
-              <option value="partner_caseworker" ${state.wsSelectedActor === "partner_caseworker" ? "selected" : ""}>Gemachtigde Behandelaar bij Partnerorganisatie (Hardware MFA)</option>
-              <option value="vault_owner" ${state.wsSelectedActor === "vault_owner" ? "selected" : ""}>De Melder zelf (Eigenaar van de Private Vault)</option>
-              <option value="platform_sysadmin" ${state.wsSelectedActor === "platform_sysadmin" ? "selected" : ""}>SIGNAL Platform- / Databasebeheerder (SysAdmin)</option>
-              <option value="sponsor_or_b2b_client" ${state.wsSelectedActor === "sponsor_or_b2b_client" ? "selected" : ""}>Betalende Werkgever / Klant van SIGNAL Institutional / Sponsor</option>
-            </select>
-          </div>
 
           ${
             state.wsSelectedActor === "partner_caseworker"
               ? `
-            <div class="form-group">
-              <label class="form-label" for="ws-org-select">Organisatie van de ingelogde behandelaar</label>
-              <select class="form-select" id="ws-org-select">
-                ${PARTNER_PASSPORTS.map(
-                  (p) =>
-                    `<option value="${p.organizationId}" ${p.organizationId === state.wsPartnerOrg ? "selected" : ""}>${p.shortName}</option>`
-                ).join("")}
-              </select>
-            </div>
+            <label class="field-label" for="ws-org">Organisatie van de behandelaar</label>
+            <select class="field" id="ws-org">
+              ${PARTNER_PASSPORTS.map(
+                (p) => `<option value="${p.organizationId}" ${p.organizationId === state.wsPartnerOrg ? "selected" : ""}>${p.shortName}</option>`
+              ).join("")}
+            </select>
           `
               : ""
           }
 
-          <div class="${authCheck.allowed ? "panel-soft" : "panel-urgent"}" style="margin-top:1rem;">
-            <div style="display:flex; justify-content:space-between; align-items:center;">
-              <strong>Toegangsbeslissing: ${authCheck.allowed ? "TOEGESTAAN (Binnen strikte scope)" : "GEWEIGERD & GELOGD"}</strong>
-              <span class="badge ${authCheck.allowed ? "badge-trust" : "badge-urgent"}">Scope: ${authCheck.scope}</span>
-            </div>
-            <p style="margin:0.4rem 0 0 0; font-size:0.9rem; color:var(--ink-primary);">${authCheck.reason}</p>
+          <div class="${authCheck.allowed ? "panel-soft" : "urgent-note"}" style="margin-top:14px;">
+            <strong>${authCheck.allowed ? "TOEGESTAAN" : "GEWEIGERD & GELOGD"} (Scope: ${authCheck.scope})</strong><br />
+            <span>${authCheck.reason}</span>
           </div>
         </div>
 
-        <div class="panel">
-          <h3>Wat deze rol daadwerkelijk te zien krijgt</h3>
-          ${
-            authCheck.allowed
-              ? `
-            <div class="panel-soft">
-              <strong>Ontsleuteld weergavebereik (${authCheck.scope}):</strong>
-              <p style="font-size:0.88rem; margin:0.4rem 0;">
-                ${
-                  authCheck.scope === "full_private_vault"
-                    ? "Volledige persoonlijke tijdlijn zichtbaar voor de eigenaar van de kluis."
-                    : `Alleen de door de melder geselecteerde items in het SIGNAL Bridge-pakket voor ${bridgedTarget} zijn ontsleuteld. Niet-geselecteerde kluisnotities zijn cryptografisch onbereikbaar.`
-                }
-              </p>
-            </div>
-          `
-              : `
-            <div class="hash-box" style="color:var(--urgent-ink);">
-              [CRYPTOGRAPHIC ACCESS DENIED]<br/>
-              KMS Key Domain B (Vault) & Partner Key Envelopes weigeren ontsleuteling voor rol '${state.wsSelectedActor}'.<br/>
-              Audit Event: ${authCheck.auditAlert || "UNAUTHORIZED_ROLE"}
-            </div>
-          `
-          }
-        </div>
-      </div>
-
-      <div>
-        <div class="panel" style="margin-bottom:1.25rem;">
-          <h3>Onwijzigbaar Audit Logboek (Zero-PII Telemetry)</h3>
-          <p style="font-size:0.86rem;">Elke toegangspoging wordt vastgelegd zonder dat er ooit namen of inhoudelijke getuigenissen in de systeemlogs terechtkomen:</p>
-          <table class="data-table" style="font-size:0.82rem;">
+        <div class="panel" style="margin-top:0;">
+          <div class="eyebrow">ZERO-PII TELEMETRY</div>
+          <h3 style="margin:6px 0 10px; font-family:'Manrope',sans-serif;">Onwijzigbaar Audit Logboek</h3>
+          <table class="data-table">
             <thead>
-              <tr>
-                <th>Tijdstip</th>
-                <th>Actor</th>
-                <th>Actie</th>
-                <th>Status</th>
-              </tr>
+              <tr><th>Tijd</th><th>Actor</th><th>Actie</th><th>Status</th></tr>
             </thead>
             <tbody>
               ${state.wsAuditLog
-                .slice(0, 6)
+                .slice(0, 5)
                 .map(
-                  (log) => `
+                  (l) => `
                 <tr>
-                  <td>${log.time}</td>
-                  <td><strong>${log.actor}</strong></td>
-                  <td>${log.action}</td>
-                  <td><span class="badge ${log.result.startsWith("BLOCKED") ? "badge-urgent" : "badge-trust"}">${log.result}</span></td>
+                  <td>${l.time.slice(11)}</td>
+                  <td><strong>${l.actor}</strong></td>
+                  <td>${l.action}</td>
+                  <td><span class="pill ${l.result.startsWith("BLOCKED") ? "pill-urgent" : ""}">${l.result}</span></td>
                 </tr>
               `
                 )
@@ -1390,109 +1013,211 @@ function renderWorkspaceScreen() {
             </tbody>
           </table>
         </div>
+      </div>
+    `;
 
-        <div class="panel">
-          <h3>Confidential Messaging (Asynchroon & Zonder Gevoelige E-mailtitels)</h3>
-          <p style="font-size:0.86rem;">
-            Een gemachtigde behandelaar kan via de beveiligde berichtenbox vragen stellen aan de melder (ook bij een pseudonieme overdracht), zonder dat er een verraderlijke e-mail met gevoelige tekst op het toestel van de melder verschijnt.
-          </p>
-          <div class="panel-soft" style="font-size:0.86rem;">
-            <strong>Voorbeeldbericht van Behandelaar (${bridgedTarget}):</strong><br/>
-            <em>"Wij hebben jouw SIGNAL Bridge-pakket goed ontvangen. We ondernemen geen enkele stap richting de genoemde organisatie zonder jouw toestemming. Wil je deze week telefonisch of fysiek de opties overlopen?"</em>
+    const actorSel = root.querySelector("#ws-actor");
+    if (actorSel) {
+      actorSel.addEventListener("change", (e) => {
+        state.wsSelectedActor = e.target.value;
+        const c = checkDossierAccessAuthorization({
+          actorRole: state.wsSelectedActor,
+          actorOrganizationId: state.wsPartnerOrg,
+          bridgedToOrganizationId: bridgedTarget
+        });
+        state.wsAuditLog.unshift({
+          time: new Date().toISOString().slice(0, 19).replace("T", " "),
+          actor: state.wsSelectedActor,
+          action: `Toegangscontrole (${bridgedTarget})`,
+          result: c.allowed ? `ALLOWED` : `BLOCKED`
+        });
+        renderCases();
+      });
+    }
+
+    const orgSel = root.querySelector("#ws-org");
+    if (orgSel) {
+      orgSel.addEventListener("change", (e) => {
+        state.wsPartnerOrg = e.target.value;
+        renderCases();
+      });
+    }
+  } else {
+    const evalHs = evaluateHandshakeSafety({
+      mvpPhase: state.hsPhase,
+      legalBasisApproved: state.hsLegalApproved,
+      reviewerOneApproved: state.hsReviewer1,
+      reviewerTwoApproved: state.hsReviewer2,
+      isHearsayOrCopycat: state.hsHearsayFlag,
+      possibleNamesakeRisk: state.hsNamesakeFlag,
+      reporterOneIndividualConsent: state.hsReporter1Consent,
+      reporterTwoIndividualConsent: state.hsReporter2Consent
+    });
+
+    root.innerHTML = `
+      <div class="small-note">
+        <strong>ADR-002:</strong> In Fase 1 &amp; 2 is matching technisch uitgeschakeld. Deze simulator toont hoe in Fase 3 een eventuele overeenkomst wordt beoordeeld met <strong>SIGNAL Fairness</strong> en het <strong>vierogenprincipe</strong> — zonder automatische notificaties of groepschats.
+      </div>
+      <div class="grid-2" style="margin-top:16px;">
+        <div class="panel" style="margin-top:0;">
+          <label class="field-label" for="hs-phase" style="margin-top:0;">Projectfase</label>
+          <select class="field" id="hs-phase">
+            <option value="1" ${state.hsPhase === 1 ? "selected" : ""}>Fase 1 / 2 MVP — Matching technisch uitgeschakeld</option>
+            <option value="3" ${state.hsPhase === 3 ? "selected" : ""}>Fase 3 — Wettelijk toegelaten domein na goedgekeurde DPIA</option>
+          </select>
+
+          <div style="margin-top:14px; font-size:12.5px;">
+            <strong>1. SIGNAL Fairness (bescherming tegen valse matches)</strong>
+            <label style="display:flex; gap:8px; margin-top:6px; cursor:pointer;"><input type="checkbox" id="hs-h" ${state.hsHearsayFlag ? "checked" : ""} /> Gerucht ("van horen zeggen") of gekopieerd verhaal</label>
+            <label style="display:flex; gap:8px; margin-top:6px; cursor:pointer;"><input type="checkbox" id="hs-n" ${state.hsNamesakeFlag ? "checked" : ""} /> Risico op naamgenoot / onvoldoende context</label>
+          </div>
+
+          <div style="margin-top:14px; font-size:12.5px;">
+            <strong>2. Menselijke vierogencontrole</strong>
+            <label style="display:flex; gap:8px; margin-top:6px; cursor:pointer;"><input type="checkbox" id="hs-r1" ${state.hsReviewer1 ? "checked" : ""} /> Beoordelaar 1 (Jurist / Behandelaar) keurt goed</label>
+            <label style="display:flex; gap:8px; margin-top:6px; cursor:pointer;"><input type="checkbox" id="hs-r2" ${state.hsReviewer2 ? "checked" : ""} /> Beoordelaar 2 (Onafhankelijk) keurt goed</label>
+          </div>
+
+          <div style="margin-top:14px; font-size:12.5px;">
+            <strong>3. Afzonderlijke begeleiding &amp; vrijwillige coördinatie</strong>
+            <label style="display:flex; gap:8px; margin-top:6px; cursor:pointer;"><input type="checkbox" id="hs-c1" ${state.hsReporter1Consent ? "checked" : ""} /> Melder A stemt na apart gesprek in via advocaat</label>
+            <label style="display:flex; gap:8px; margin-top:6px; cursor:pointer;"><input type="checkbox" id="hs-c2" ${state.hsReporter2Consent ? "checked" : ""} /> Melder B stemt na apart gesprek in via advocaat</label>
           </div>
         </div>
+
+        <div class="panel" style="margin-top:0;">
+          <span class="pill ${evalHs.canProceedToHandshake ? "" : "pill-caution"}">Status: ${evalHs.status}</span>
+          <h3 style="margin:10px 0 6px; font-family:'Manrope',sans-serif;">Uitkomst veiligheidstoets</h3>
+          <p style="font-size:13px; color:#314d4f;">${evalHs.reason}</p>
+          <table class="data-table" style="margin-top:12px;">
+            <tbody>
+              <tr><th>Automatische match-melding naar melders?</th><td><span class="pill">ALTIJD UIT (${evalHs.automatedNotificationSentToReporters})</span></td></tr>
+              <tr><th>Publieke teller bijgewerkt?</th><td><span class="pill">VERBODEN (${evalHs.publicAccusationCounterIncremented})</span></td></tr>
+              <tr><th>AI-geloofwaardigheidsscore?</th><td><span class="pill">VERBODEN (${evalHs.aiCredibilityScoreUsed})</span></td></tr>
+              <tr><th>Individuele begeleiding (Handshake)?</th><td><strong>${evalHs.canProceedToHandshake ? "JA (apart)" : "NEE"}</strong></td></tr>
+              <tr><th>Gecoördineerde stap (zonder groepschat)?</th><td><strong>${evalHs.canProceedToCollective ? "JA (via advocaat)" : "NEE"}</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
-  `;
+    `;
 
-  const actorSel = root.querySelector("#ws-actor-select");
-  if (actorSel) {
-    actorSel.addEventListener("change", (e) => {
-      state.wsSelectedActor = e.target.value;
-      const check = checkDossierAccessAuthorization({
-        actorRole: state.wsSelectedActor,
-        actorOrganizationId: state.wsPartnerOrg,
-        bridgedToOrganizationId: bridgedTarget
-      });
-      state.wsAuditLog.unshift({
-        time: new Date().toISOString().slice(0, 19).replace("T", " "),
-        actor: state.wsSelectedActor,
-        action: `Toegangscontrole op dossierpakket (${bridgedTarget})`,
-        result: check.allowed ? `ALLOWED (${check.scope})` : `BLOCKED (${check.auditAlert})`
-      });
-      renderWorkspaceScreen();
+    root.querySelector("#hs-phase").addEventListener("change", (e) => {
+      state.hsPhase = Number(e.target.value);
+      state.hsLegalApproved = state.hsPhase === 3;
+      renderCases();
     });
-  }
-
-  const orgSel = root.querySelector("#ws-org-select");
-  if (orgSel) {
-    orgSel.addEventListener("change", (e) => {
-      state.wsPartnerOrg = e.target.value;
-      renderWorkspaceScreen();
-    });
+    const bindHs = (id, key) =>
+      root.querySelector(id).addEventListener("change", (e) => {
+        state[key] = e.target.checked;
+        renderCases();
+      });
+    bindHs("#hs-h", "hsHearsayFlag");
+    bindHs("#hs-n", "hsNamesakeFlag");
+    bindHs("#hs-r1", "hsReviewer1");
+    bindHs("#hs-r2", "hsReviewer2");
+    bindHs("#hs-c1", "hsReporter1Consent");
+    bindHs("#hs-c2", "hsReporter2Consent");
   }
 }
 
-function renderTrustScreen() {
+// 6. TRUST, CONSENT & GOVERNANCE
+function renderTrust() {
+  document.querySelectorAll("[data-trust-tab]").forEach((t) => {
+    t.classList.toggle("active", t.dataset.trustTab === state.trustTab);
+  });
+
   const root = document.getElementById("trust-dynamic-root");
   if (!root) return;
 
-  root.innerHTML = `
-    <div class="grid-2" style="margin-bottom:1.5rem;">
+  if (state.trustTab === "principles") {
+    root.innerHTML = `
+      <div class="grid" style="margin-top:20px;">
+        <div class="card"><div class="ico">♧</div><h3>Geen publieke schandpaal</h3><p>Geen namenlijsten, rankings of reputatiescores van beschuldigde personen.</p></div>
+        <div class="card"><div class="ico">◎</div><h3>Menselijke beoordeling</h3><p>AI ordent alleen tekst; juridische of menselijke beslissingen liggen altijd bij bevoegde professionals.</p></div>
+        <div class="card"><div class="ico">▣</div><h3>Privacy by design</h3><p>KMS-scheiding, zero-PII auditlogs, DPIA en onafhankelijke security-audits.</p></div>
+        <div class="card"><div class="ico">◇</div><h3>Vrijwillige stappen</h3><p>Duidelijk consent vóór elke overdracht via SIGNAL Bridge.</p></div>
+        <div class="card"><div class="ico">⚖</div><h3>Rechten van iedereen</h3><p>Bescherming tegen valse of gecoördineerde meldingen via SIGNAL Fairness.</p></div>
+        <div class="card"><div class="ico">↗</div><h3>Verbinding met bestaande hulp</h3><p>Ondersteunt 1712, ZSG, VMRI, Unia en Ombudsman zonder ze te vervangen.</p></div>
+      </div>
+
       <div class="panel">
-        <h3>De 7 Verboden Anti-Features (Wat we absoluut NIET bouwen)</h3>
-        <p style="font-size:0.88rem;">Deze rode lijnen beschermen zowel slachtoffers als beschuldigden tegen een digitaal schandblok:</p>
+        <div class="eyebrow">RODE LIJNEN</div>
+        <h3 style="margin:6px 0 10px; font-family:'Manrope',sans-serif;">Wat SIGNAL absoluut NIET bouwt (7 Verboden Anti-Features)</h3>
         ${FORBIDDEN_ANTI_FEATURES.map(
           (f) => `
-          <div style="padding:0.65rem 0; border-bottom:1px solid var(--border-subtle);">
-            <strong style="color:var(--urgent-ink); font-size:0.92rem;">✕ ${f.title}</strong>
-            <p style="margin:0.2rem 0; font-size:0.84rem;"><strong>Waarom verboden:</strong> ${f.reason}</p>
-            <p style="margin:0; font-size:0.84rem; color:var(--deep-trust);"><strong>SIGNAL-alternatief:</strong> ${f.signalAlternative}</p>
+          <div style="padding:10px 0; border-bottom:1px solid var(--line); font-size:12.5px;">
+            <strong style="color:var(--urgent-ink);">✕ ${f.title}</strong><br />
+            <span style="color:#657b7b;">${f.reason}</span> — <strong style="color:var(--teal);">Alternatief:</strong> ${f.signalAlternative}
           </div>
         `
         ).join("")}
       </div>
-
-      <div>
-        <div class="panel" style="margin-bottom:1.25rem;">
-          <h3>De 8 Statutaire Onafhankelijkheidsregels (Belgische VZW / Stichting)</h3>
-          <ol style="margin:0; padding-left:1.2rem; font-size:0.88rem; color:var(--ink-secondary);">
-            <li style="margin-bottom:0.4rem;"><strong>Geen verkoop van data:</strong> Persoonsgegevens of meldingen worden nooit commercieel geëxploiteerd.</li>
-            <li style="margin-bottom:0.4rem;"><strong>Geen advertenties of tracking:</strong> Geen gedragsgerichte reclame of commerciële pixels.</li>
-            <li style="margin-bottom:0.4rem;"><strong>Geen betaalde doofpot:</strong> Geen enkele organisatie kan betalen om meldingen te verbergen of te verwijderen.</li>
-            <li style="margin-bottom:0.4rem;"><strong>Geen inzage door financiers (ADR-004):</strong> Strikte muur tussen publieke <em>SIGNAL Care</em> en zakelijke <em>SIGNAL Institutional</em>.</li>
-            <li style="margin-bottom:0.4rem;"><strong>Openbaar jaarverslag:</strong> Jaarlijkse verantwoording met k-anonieme maatschappelijke cijfers.</li>
-            <li style="margin-bottom:0.4rem;"><strong>Jaarlijkse externe security- & governance-audit:</strong> Openbare samenvatting van de bevindingen.</li>
-            <li style="margin-bottom:0.4rem;"><strong>Strikte belangenconflictregels:</strong> Verplichte onthouding bij betrokkenheid van eigen netwerk.</li>
-            <li><strong>Verplicht SIGNAL Continuity noodplan:</strong> Geoormerkte reserve en gegarandeerde exportmogelijkheid.</li>
+    `;
+  } else if (state.trustTab === "consent") {
+    const items = [
+      { key: "localVault", title: "Persoonlijke kluis & tijdlijn", rule: "100% direct wisbaar door jou (Crypto-shredding)." },
+      { key: "evidenceHash", title: "SHA-256 Bewijsintegriteit", rule: "Wisbaar samen met je persoonlijke kluis." },
+      { key: "bridgeTransfer", title: "SIGNAL Bridge-overdracht naar één partner", rule: "Vóór verzending intrekbaar; ná verzending geldt het bewaarbeleid van de ontvanger (art. 17 lid 3 AVG)." },
+      { key: "patternCheckPhase3", title: "Safe Matching (Fase 3 · Standaard Uit)", rule: "Standaard uitgeschakeld in MVP (ADR-002)." },
+      { key: "anonymousPulseStats", title: "SIGNAL Pulse (k-anonieme statistiek)", rule: "Bevat nooit herleidbare persoonsgegevens." }
+    ];
+    root.innerHTML = `
+      <div class="panel">
+        <div class="eyebrow">ARTIKEL 17 AVG · EERLIJKE TOELICHTING</div>
+        <h3 style="margin:6px 0 12px; font-family:'Manrope',sans-serif;">Granulaire Toestemmingsmatrix</h3>
+        ${items
+          .map(
+            (i) => `
+          <div style="display:flex; justify-content:space-between; align-items:center; gap:14px; padding:12px 0; border-bottom:1px solid var(--line);">
+            <div>
+              <strong style="font-size:13px;">${i.title}</strong>
+              <div style="font-size:12px; color:#6b8081;">${i.rule}</div>
+            </div>
+            <label style="display:flex; align-items:center; gap:6px; font-size:12px; font-weight:700; cursor:pointer;">
+              <input type="checkbox" data-consent-k="${i.key}" ${state.consentMatrix[i.key] ? "checked" : ""} />
+              <span>${state.consentMatrix[i.key] ? "Aan" : "Uit"}</span>
+            </label>
+          </div>
+        `
+          )
+          .join("")}
+      </div>
+    `;
+    root.querySelectorAll("[data-consent-k]").forEach((cb) => {
+      cb.addEventListener("change", (e) => {
+        state.consentMatrix[cb.dataset.consentK] = e.target.checked;
+        renderTrust();
+      });
+    });
+  } else {
+    root.innerHTML = `
+      <div class="grid-2" style="margin-top:20px;">
+        <div class="panel" style="margin-top:0;">
+          <div class="eyebrow">BELGISCHE VZW / STICHTING</div>
+          <h3 style="margin:6px 0 10px; font-family:'Manrope',sans-serif;">De 8 Statutaire Onafhankelijkheidsregels</h3>
+          <ol style="padding-left:18px; font-size:12.5px; color:#4f6869; line-height:1.7;">
+            <li>Geen verkoop of commerciële exploitatie van meldingen.</li>
+            <li>Geen advertenties of trackingpixels.</li>
+            <li>Geen betaalde verwijdering of doofpot voor organisaties.</li>
+            <li>Strikte muur tussen <em>SIGNAL Care</em> en zakelijke klanten (ADR-004).</li>
+            <li>Openbaar jaarverslag met k-anonieme maatschappelijke cijfers.</li>
+            <li>Jaarlijkse externe security- en governance-audit.</li>
+            <li>Verplichte belangenconflict-onthouding.</li>
+            <li>Geoormerkte continuïteitsreserve &amp; draagbare kluisexport.</li>
           </ol>
         </div>
-
-        <div class="panel-soft">
-          <h3>SIGNAL Pulse — Ethische Impact-KPI's (Geen jacht op aantallen klachten)</h3>
-          <p style="font-size:0.86rem;">Wij meten succes nooit aan het aantal beschuldigingen, maar aan veilige en tijdige hulp:</p>
-          <div class="grid-2" style="gap:0.75rem;">
-            <div class="panel" style="padding:0.85rem;">
-              <strong style="color:var(--deep-trust);">Successful Routing Rate</strong>
-              <p style="font-size:0.8rem; margin:0.2rem 0 0 0;">Vindt de gebruiker binnen één sessie de juiste bevoegde Belgische instantie?</p>
-            </div>
-            <div class="panel" style="padding:0.85rem;">
-              <strong style="color:var(--deep-trust);">Time to Guidance</strong>
-              <p style="font-size:0.8rem; margin:0.2rem 0 0 0;">Hoeveel sneller krijgt iemand passende steun of sporenbehoud (ZSG)?</p>
-            </div>
-            <div class="panel" style="padding:0.85rem;">
-              <strong style="color:var(--deep-trust);">Consent Comprehension</strong>
-              <p style="font-size:0.8rem; margin:0.2rem 0 0 0;">Begrijpt 95%+ exact wat een stap juridisch wél en níét doet?</p>
-            </div>
-            <div class="panel" style="padding:0.85rem;">
-              <strong style="color:var(--deep-trust);">Partner Follow-through</strong>
-              <p style="font-size:0.8rem; margin:0.2rem 0 0 0;">Bruikbare warme overdracht zonder het verhaal opnieuw te moeten vertellen.</p>
-            </div>
-          </div>
+        <div class="panel" style="margin-top:0;">
+          <div class="eyebrow">SIGNAL PULSE</div>
+          <h3 style="margin:6px 0 10px; font-family:'Manrope',sans-serif;">Ethische Impact-KPI's</h3>
+          <p style="font-size:12.5px; color:#6b8081;">Succes wordt gemeten aan snelle, veilige hulp — nooit aan aantallen beschuldigingen:</p>
+          <div class="demo-row">✓ <div><b>Successful Routing Rate</b><small>Vindt de gebruiker binnen één sessie het bevoegde kanaal?</small></div></div>
+          <div class="demo-row">✓ <div><b>Time to Guidance / ZSG</b><small>Snellere toegang tot medische/forensische zorg binnen 72 uur.</small></div></div>
+          <div class="demo-row">✓ <div><b>Consent Comprehension</b><small>95%+ begrijpt vooraf wat een overdracht juridisch wel en niet doet.</small></div></div>
         </div>
       </div>
-    </div>
-  `;
+    `;
+  }
 }
 
 function toggleInvisibleMode() {
@@ -1501,23 +1226,18 @@ function toggleInvisibleMode() {
   const btn = document.getElementById("btn-toggle-invisible");
   if (btn) {
     btn.classList.toggle("active-toggle", state.invisibleMode);
-    btn.textContent = state.invisibleMode
-      ? "SIGNAL Invisible: AAN (Discreet)"
-      : "SIGNAL Invisible (Discrete weergave)";
+    btn.textContent = state.invisibleMode ? "Invisible: AAN" : "SIGNAL Invisible";
   }
-  const brandSub = document.getElementById("brand-subtitle-text");
-  if (brandSub) {
-    brandSub.textContent = state.invisibleMode
-      ? "Persoonlijke administratie- en oriëntatiewerkruimte"
-      : "The Independent Trust Infrastructure · Jouw verhaal. Jouw keuze.";
+  const sub = document.getElementById("topbar-subtitle");
+  if (sub) {
+    sub.textContent = state.invisibleMode
+      ? "Persoonlijke administratie-werkruimte"
+      : "Onafhankelijk vertrouwensnetwerk · België (SIGNAL 4.0)";
   }
-  renderCompassScreen();
-  renderVaultScreen();
-  renderBridgeScreen();
+  gotoPage(state.activePage);
 }
 
-function triggerSafeExitModal() {
-  // Reset local demo mutations immediately
+function triggerSafeExit() {
   state.dossiers = structuredClone(INITIAL_DOSSIERS);
   state.lastCreatedBridgePackage = null;
   state.continuityExportJson = null;
@@ -1529,81 +1249,127 @@ function updateTourUI() {
   const bar = document.getElementById("tour-bar");
   if (!bar) return;
   if (!state.tourActive) {
-    bar.style.display = "none";
+    bar.classList.remove("open");
     return;
   }
-  bar.style.display = "block";
+  bar.classList.add("open");
   const step = TOUR_STEPS[state.tourIndex];
   document.getElementById("tour-title").textContent = step.title;
   document.getElementById("tour-desc").textContent = step.text;
-  switchScreen(step.screen);
+  gotoPage(step.page);
 }
 
 export function initSignalApp() {
-  // Navigation tabs
-  document.querySelectorAll(".nav-tab").forEach((btn) => {
-    btn.addEventListener("click", () => switchScreen(btn.dataset.screen));
+  document.querySelectorAll("[data-page]").forEach((b) =>
+    b.addEventListener("click", () => gotoPage(b.dataset.page))
+  );
+  document.querySelectorAll("[data-goto]").forEach((b) =>
+    b.addEventListener("click", () => gotoPage(b.dataset.goto))
+  );
+
+  // Wizard buttons
+  const backBtn = document.getElementById("back");
+  const nextBtn = document.getElementById("next");
+  if (backBtn) {
+    backBtn.addEventListener("click", () => {
+      state.wizardStep = Math.max(0, state.wizardStep - 1);
+      renderWizard();
+    });
+  }
+  if (nextBtn) {
+    nextBtn.addEventListener("click", () => {
+      if (state.wizardStep < 2) {
+        state.wizardStep += 1;
+        renderWizard();
+      } else {
+        gotoPage("vault");
+      }
+    });
+  }
+
+  // Help filter
+  const helpSel = document.getElementById("filter");
+  if (helpSel) {
+    helpSel.addEventListener("change", (e) => {
+      state.helpFilter = e.target.value;
+      renderHelp();
+    });
+  }
+
+  // Subtabs
+  document.querySelectorAll("[data-cases-tab]").forEach((t) => {
+    t.addEventListener("click", () => {
+      state.casesTab = t.dataset.casesTab;
+      renderCases();
+    });
+  });
+  document.querySelectorAll("[data-trust-tab]").forEach((t) => {
+    t.addEventListener("click", () => {
+      state.trustTab = t.dataset.trustTab;
+      renderTrust();
+    });
   });
 
-  // Quick screen jump buttons on Home & Aftercare
-  document.querySelectorAll("[data-nav-target]").forEach((btn) => {
-    btn.addEventListener("click", () => switchScreen(btn.dataset.navTarget));
-  });
-
-  // Topbar actions
+  // Topbar controls
   const invBtn = document.getElementById("btn-toggle-invisible");
   if (invBtn) invBtn.addEventListener("click", toggleInvisibleMode);
 
   const emBtn = document.getElementById("btn-toggle-emergency");
   const emDrawer = document.getElementById("emergency-drawer");
+  const closeEm = document.getElementById("btn-close-emergency");
   if (emBtn && emDrawer) {
     emBtn.addEventListener("click", () => {
       state.emergencyOpen = !state.emergencyOpen;
-      emDrawer.style.display = state.emergencyOpen ? "block" : "none";
+      emDrawer.classList.toggle("open", state.emergencyOpen);
       emBtn.classList.toggle("active-toggle", state.emergencyOpen);
+    });
+  }
+  if (closeEm && emDrawer && emBtn) {
+    closeEm.addEventListener("click", () => {
+      state.emergencyOpen = false;
+      emDrawer.classList.remove("open");
+      emBtn.classList.remove("active-toggle");
     });
   }
 
   const exitBtn = document.getElementById("btn-safe-exit");
-  if (exitBtn) exitBtn.addEventListener("click", triggerSafeExitModal);
+  if (exitBtn) exitBtn.addEventListener("click", triggerSafeExit);
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") triggerSafeExit();
+  });
 
-  const closeExitModal = document.getElementById("btn-close-safe-exit");
-  if (closeExitModal) {
-    closeExitModal.addEventListener("click", () => {
+  const closeExit = document.getElementById("btn-close-safe-exit");
+  if (closeExit) {
+    closeExit.addEventListener("click", () => {
       document.getElementById("safe-exit-modal").classList.remove("open");
-      switchScreen("screen-home");
-      renderVaultScreen();
-      renderBridgeScreen();
+      gotoPage("home");
     });
   }
 
   // Tour controls
-  const startTourBtn = document.getElementById("btn-start-tour");
-  if (startTourBtn) {
-    startTourBtn.addEventListener("click", () => {
+  const startTour = document.getElementById("btn-start-tour");
+  if (startTour) {
+    startTour.addEventListener("click", () => {
       state.tourActive = true;
       state.tourIndex = 0;
       updateTourUI();
     });
   }
-
   const prevTour = document.getElementById("btn-tour-prev");
+  const nextTour = document.getElementById("btn-tour-next");
+  const stopTour = document.getElementById("btn-tour-stop");
   if (prevTour) {
     prevTour.addEventListener("click", () => {
       state.tourIndex = (state.tourIndex - 1 + TOUR_STEPS.length) % TOUR_STEPS.length;
       updateTourUI();
     });
   }
-
-  const nextTour = document.getElementById("btn-tour-next");
   if (nextTour) {
     nextTour.addEventListener("click", () => {
       state.tourIndex = (state.tourIndex + 1) % TOUR_STEPS.length;
       updateTourUI();
     });
   }
-
-  const stopTour = document.getElementById("btn-tour-stop");
   if (stopTour) {
     stopTour.addEventListener("click", () => {
       state.tourActive = false;
@@ -1611,22 +1377,13 @@ export function initSignalApp() {
     });
   }
 
-  // Initial render of all dynamic screens
-  renderCompassScreen();
-  renderConsentScreen();
-  renderVaultScreen();
-  renderBridgeScreen();
-  renderNetworkScreen();
-  renderHandshakeScreen();
-  renderWorkspaceScreen();
-  renderTrustScreen();
-
-  // Auto-start tour if ?tour in URL
-  if (window.location.search.includes("tour")) {
-    state.tourActive = true;
-    state.tourIndex = 0;
-    updateTourUI();
-  }
+  // Initial renders
+  renderWizard();
+  renderHelp();
+  renderVault();
+  renderBridge();
+  renderCases();
+  renderTrust();
 }
 
 if (typeof window !== "undefined") {
